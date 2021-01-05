@@ -3,17 +3,70 @@
 	"name": "Arturo",
 	"patterns": [
 		{
-			"include": "#keywords"
+			"include": "#shebang"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#builtins"
+		},
+		{
+			"include": "#chars"
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#sugar"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#attributes"
+		},
+		{
+			"include": "#labels"
 		}
 	],
 	"repository": {
-		"keywords": {
+		"shebang": {
+			"name": "comment.line.shebang.art",
+			"match": "\\A(#!).*(?=$)",
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.comment.art"
+				}
+			}
+		},
+		"shebang": {
+			"name": "comment.line.shebang.art",
+			"match": "\\A(#!).*(?=$)",
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.comment.art"
+				}
+			}
+		},
+		"comments": {
+			"name": "comment.line.art",
+			"begin": ";",
+			"end": "$"
+		},
+		"builtins": {
 			"patterns": [{
-				"name": "keyword.control.art",
-				"match": "\\b(if|while|for|return)\\b"
+				"name": "support.constant.art",
+				"match": "\\b(abs|acos|acosh|add|all|and|and|any|append|array|as|asin|asinh|atan|atanh|attr|attr|attrs|average|benchmark|call|capitalize|case|clear|color|combine|cos|cosh|csec|csech|ctan|ctanh|dec|decode|dictionary|div|do|download|drop|dup|else|empty|empty|encode|equal|even|execute|exists|exit|factors|fdiv|filter|first|flatten|fold|function|gcd|get|globalize|greater|greaterOrEqual|hash|help|if|if|in|in|inc|index|info|input|inspect|is|join|key|keys|last|less|lessOrEqual|let|levenshtein|list|loop|lower|lower|mail|map|match|max|median|min|mod|module|mul|nand|nand|neg|negative|new|nop|nor|nor|not|not|notEqual|now|numeric|odd|or|or|pad|panic|pause|permutate|pop|positive|pow|prefix|prefix|prime|print|prints|product|push|random|range|read|relative|remove|render|repeat|replace|return|reverse|sample|sec|sech|select|serve|set|set|shl|shr|shuffle|sin|sinh|size|slice|sort|split|sqrt|stack|strip|sub|suffix|suffix|sum|swap|symbols|take|tan|tanh|to|try|try|type|unique|until|upper|upper|values|var|webview*|when|while|whitespace|write|xnor|xnor|xor|xor|zero)(\\?|\\b)"
+			}]
+		},
+		"chars": {
+			"patterns": [{
+				"name": "string.quoted.double.art",
+				"match": "`.`"
 			}]
 		},
 		"strings": {
@@ -26,6 +79,36 @@
 					"match": "\\\\."
 				}
 			]
+		},
+		"constants": {
+			"patterns": [{
+				"name": "constant.language.art",
+				"match": "true|false|null"
+			}]
+		},
+		"sugar": {
+			"patterns": [{
+				"name": "markup.heading.art punctuation.definition.heading.art",
+				"match": "(->|=>|\\|)"
+			}]
+		},
+		"operators": {
+			"patterns": [{
+				"name": "keyword.operator.art",
+				"match": "@|#|\\+|\\||\\*|\\$|\\-|\\%|\\/|\\.\\.|\\^|~|=|<|>|\\\\|\\-\\-\\-"
+			}]
+		},
+		"attributes": {
+			"patterns": [{
+				"name": "text.plain.art",
+				"match": "\\.([\\w]+\\b\\??:?)"
+			}]
+		},
+		"labels": {
+			"patterns": [{
+				"name": "entity.name.art",
+				"match": "([\\w]+\\b\\??:)"
+			}]
 		}
 	},
 	"scopeName": "source.arturo"
