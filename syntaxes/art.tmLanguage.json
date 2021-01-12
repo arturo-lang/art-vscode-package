@@ -27,6 +27,9 @@
 			"include": "#code_sql"
 		},
 		{
+			"include": "#curly_string"
+		},
+		{
 			"include": "#constants"
 		},
 		{
@@ -34,6 +37,12 @@
 		},
 		{
 			"include": "#operators"
+		},
+		{
+			"include": "#literals"
+		},
+		{
+			"include": "#types"
 		},
 		{
 			"include": "#attributes"
@@ -52,15 +61,6 @@
 				}
 			}
 		},
-		"shebang": {
-			"name": "comment.line.shebang.art",
-			"match": "\\A(#!).*(?=$)",
-			"captures": {
-				"1": {
-					"name": "punctuation.definition.comment.art"
-				}
-			}
-		},
 		"comments": {
 			"name": "comment.line.art",
 			"begin": ";",
@@ -69,7 +69,7 @@
 		"builtins": {
 			"patterns": [{
 				"name": "support.constant.art",
-				"match": "\\b(abs|acos|acosh|add|all|and|and|any|append|array|as|asin|asinh|atan|atanh|attr|attr|attrs|average|benchmark|call|capitalize|case|clear|color|combine|cos|cosh|csec|csech|ctan|ctanh|dec|decode|dictionary|div|do|download|drop|dup|else|empty|empty|encode|equal|even|execute|exists|exit|factors|fdiv|filter|first|flatten|fold|function|gcd|get|globalize|greater|greaterOrEqual|hash|help|if|if|in|in|inc|index|info|input|inspect|is|join|key|keys|last|less|lessOrEqual|let|levenshtein|list|loop|lower|lower|mail|map|match|max|median|min|mod|module|mul|nand|nand|neg|negative|new|nop|nor|nor|not|not|notEqual|now|numeric|odd|or|or|pad|panic|pause|permutate|pop|positive|pow|prefix|prefix|prime|print|prints|product|push|random|range|read|relative|remove|render|repeat|replace|return|reverse|sample|sec|sech|select|serve|set|set|shl|shr|shuffle|sin|sinh|size|slice|sort|split|sqrt|stack|strip|sub|suffix|suffix|sum|swap|symbols|take|tan|tanh|to|try|try|type|unique|until|upper|upper|values|var|webview*|when|while|whitespace|write|xnor|xnor|xor|xor|zero)(\\?|\\b)"
+				"match": "(?<!')\\b(abs|acos|acosh|add|all|and|any|append|array|as|asin|asinh|atan|atanh|attribute|attributeLabel|attrs|average|benchmark|binary|block|boolean|break|call|capitalize|case|char|clear|close|color|combine|continue|cos|cosh|csec|csech|ctan|ctanh|database|date|dec|decode|dictionary|digest|div|do|download|drop|dup|else|empty|encode|equal|even|execute|exists|exit|extend|extract|factors|false|fdiv|filter|first|flatten|floating|fold|function|gcd|get|globalize|greater|greaterOrEqual|hasAttribute|hash|help|if|in|inc|index|info|inline|input|inspect|integer|is|join|key|keys|label|last|less|lessOrEqual|let|levenshtein|list|literal|loop|lower|mail|map|match|max|median|min|mod|module|mul|nand|native|neg|negative|new|nop|nor|not|notEqual|now|null|numeric|odd|open|or|pad|panic|path|pathLabel|pause|permutate|pop|positive|pow|prefix|prime|print|prints|product|push|query|random|range|read|relative|remove|render|repeat|replace|return|reverse|sample|sec|sech|select|serve|set|shl|shr|shuffle|sin|sinh|size|slice|sort|split|sqrt|stack|standalone|string|strip|sub|suffix|sum|swap|symbol|symbols|take|tan|tanh|to|true|try|type|unique|until|unzip|upper|values|var|webview*|when|while|whitespace|word|write|xnor|xor|zero|zip)(\\?|\\b)"
 			}]
 		},
 		"chars": {
@@ -124,16 +124,27 @@
             },
             "name": "meta.embedded.block.html",
             "patterns": [ { "include": "source.sql" } ]
-        },
+		},
+		"curly_string": {
+            "begin": "\\{",
+            "end": "\\}",
+            "beginCaptures": {
+                "0": { "name": "punctuation.code.open" }
+            },
+            "endCaptures": {
+                "0": { "name": "punctuation.code.close" }
+            },
+            "name": "text.plain.art"
+		},
 		"constants": {
 			"patterns": [{
 				"name": "constant.language.art",
-				"match": "true|false|null"
+				"match": "(true|false|null)(?!\\?)"
 			}]
 		},
 		"sugar": {
 			"patterns": [{
-				"name": "markup.heading.art punctuation.definition.heading.art",
+				"name": "variable.parameter.art",
 				"match": "(->|=>|\\|)"
 			}]
 		},
@@ -141,6 +152,18 @@
 			"patterns": [{
 				"name": "keyword.operator.art",
 				"match": "ø|@|#|\\+|\\||\\*|\\$|\\-|\\%|\\/|\\.\\.|\\^|~|=|<|>|\\\\|\\-\\-\\-"
+			}]
+		},
+		"literals": {
+			"patterns": [{
+				"name": "constant.language.art",
+				"match": "'([\\w]+\\b\\??:?)"
+			}]
+		},
+		"types": {
+			"patterns": [{
+				"name": "constant.language.art",
+				"match": ":(integer|string|block|dictionary|function)"
 			}]
 		},
 		"attributes": {
