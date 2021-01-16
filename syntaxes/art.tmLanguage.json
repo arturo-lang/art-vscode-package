@@ -30,6 +30,9 @@
 			"include": "#curly_string"
 		},
 		{
+			"include": "#string_block"
+		},
+		{
 			"include": "#constants"
 		},
 		{
@@ -136,6 +139,17 @@
             },
             "name": "text.plain.art"
 		},
+		"string_block": {
+            "begin": "---",
+            "end": "---",
+            "beginCaptures": {
+                "0": { "name": "punctuation.code.open" }
+            },
+            "endCaptures": {
+                "0": { "name": "punctuation.code.close" }
+            },
+            "name": "string.quoted.double.art"
+		},
 		"constants": {
 			"patterns": [{
 				"name": "constant.language.art",
@@ -163,7 +177,7 @@
 		"types": {
 			"patterns": [{
 				"name": "constant.language.art",
-				"match": ":(integer|string|block|dictionary|function)"
+				"match": ":([\\w]+)"
 			}]
 		},
 		"attributes": {
