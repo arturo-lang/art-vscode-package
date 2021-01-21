@@ -27,6 +27,9 @@
 			"include": "#code_sql"
 		},
 		{
+			"include": "#code_sh"
+		},
+		{
 			"include": "#curly_string"
 		},
 		{
@@ -127,6 +130,18 @@
             },
             "name": "meta.embedded.block.html",
             "patterns": [ { "include": "source.sql" } ]
+		},
+		"code_sh": {
+            "begin": "\\{!sh",
+            "end": "\\}",
+            "beginCaptures": {
+                "0": { "name": "punctuation.code.open" }
+            },
+            "endCaptures": {
+                "0": { "name": "punctuation.code.close" }
+            },
+            "name": "meta.embedded.block.html",
+            "patterns": [ { "include": "source.shell" } ]
 		},
 		"curly_string": {
             "begin": "\\{",
