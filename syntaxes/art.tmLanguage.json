@@ -9,7 +9,10 @@
 			"include": "#comments"
 		},
 		{
-			"include": "#builtins"
+			"include": "#builtins1"
+		},
+		{
+			"include": "#builtins2"
 		},
 		{
 			"include": "#chars"
@@ -72,10 +75,16 @@
 			"begin": ";",
 			"end": "$"
 		},
-		"builtins": {
+		"builtins1": {
 			"patterns": [{
 				"name": "support.constant.art",
-				"match": "(?<!')\\b(abs|acos|acosh|add|all|and|any|append|array|as|asin|asinh|atan|atanh|attribute|attributeLabel|attrs|average|benchmark|binary|block|boolean|break|call|capitalize|case|char|clear|close|color|combine|contains|continue|cos|cosh|csec|csech|ctan|ctanh|database|date|dec|decode|dictionary|digest|div|do|download|drop|dup|else|empty|encode|equal|even|execute|exists|exit|extend|extract|factors|false|fdiv|filter|first|flatten|floating|fold|from|function|gcd|get|globalize|greater|greaterOrEqual|hasAttribute|hash|help|if|in|inc|index|info|inline|input|insert|inspect|integer|is|join|key|keys|label|last|less|lessOrEqual|let|levenshtein|list|literal|loop|lower|mail|map|match|max|median|min|mod|module|mul|nand|native|neg|negative|new|nop|nor|not|notEqual|now|null|numeric|odd|open|or|pad|panic|path|pathLabel|pause|permutate|pop|positive|pow|prefix|prime|print|prints|product|push|query|random|range|read|relative|remove|render|repeat|replace|return|reverse|sample|sec|sech|select|serve|set|shl|shr|shuffle|sin|sinh|size|slice|sort|split|sqrt|stack|standalone|string|strip|sub|suffix|sum|swap|symbol|symbols|take|tan|tanh|to|true|try|type|unique|until|unzip|upper|values|var|webview*|when|while|whitespace|word|write|xnor|xor|zero|zip)(\\?|\\b)(?!:)"
+				"match": "(?<!')\\b(all|and|any|ascii|attr|attribute|attributeLabel|binary|block|boolean|char|contains|database|date|dictionary|empty|equal|even|every|exists|false|floating|function|greater|greaterOrEqual|if|in|inline|integer|is|key|label|leap|less|lessOrEqual|literal|lower|nand|negative|nor|not|notEqual|null|numeric|odd|or|path|pathLabel|positive|prefix|prime|set|some|standalone|string|subset|suffix|superset|symbol|true|try|type|upper|when|whitespace|word|xnor|zero)\\?(?!:)"
+			}]
+		},
+		"builtins2": {
+			"patterns": [{
+				"name": "support.constant.art",
+				"match": "(?<!')\\b(abs|acos|acosh|add|and|append|arg|arity|array|as|asin|asinh|atan|atanh|attr|attrs|average|benchmark|break|builtins1|builtins2|call|capitalize|case|ceil|chop|clear|close|color|combine|continue|cos|cosh|csec|csech|ctan|ctanh|dec|decode|dictionary|difference|digest|div|do|download|drop|dup|else|empty|encode|ensure|epsilon|execute|exit|exp|extend|extract|factors|false|fdiv|filter|first|flatten|floor|fold|from|function|gamma|gcd|get|globalize|hash|help|if|inc|index|info|input|insert|inspect|intersection|join|keys|last|let|levenshtein|list|ln|log|loop|lower|mail|map|match|max|median|min|mod|module|mul|nand|neg|new|nor|not|now|null|open|or|pad|panic|path|pause|permutate|pi|pop|pow|prefix|print|prints|product|query|random|range|read|relative|remove|render|repeat|replace|return|reverse|round|sample|sec|sech|select|serve|set|shl|shr|shuffle|sin|sinh|size|slice|sort|split|sqrt|stack|strip|sub|suffix|sum|symbols|sys|take|tan|tanh|to|true|truncate|try|type|union|unique|until|unzip|upper|values|var|webview|while|write|xnor|xor|zip)\\b(?!:)"
 			}]
 		},
 		"chars": {
