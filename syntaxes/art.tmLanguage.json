@@ -182,8 +182,8 @@
 		},
 		"sugar": {
 			"patterns": [{
-				"name": "variable.parameter.art",
-				"match": "(->|=>|\\|)"
+				"name": "meta.attribute.id.html string",
+				"match": "(->|=>|\\||\\:\\:)"
 			}]
 		},
 		"operators": {
