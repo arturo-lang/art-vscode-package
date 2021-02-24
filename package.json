@@ -2,7 +2,7 @@
     "name": "arturo",
     "displayName": "Arturo",
     "description": "Syntax highlighting for the Arturo programming language",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "publisher": "drkameleon",
     "repository": "https://github.com/arturo-lang/art-vscode-package",
     "icon": "images/arturoLogo.png",
