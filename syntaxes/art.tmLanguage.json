@@ -27,6 +27,9 @@
 			"include": "#code_html"
 		},
 		{
+			"include": "#code_md"
+		},
+		{
 			"include": "#code_sql"
 		},
 		{
@@ -128,6 +131,18 @@
             "name": "meta.embedded.block.html",
             "patterns": [ { "include": "text.html.derivative" } ]
 		},
+		"code_md": {
+            "begin": "\\{!md",
+            "end": "\\}",
+            "beginCaptures": {
+                "0": { "name": "punctuation.code.open" }
+            },
+            "endCaptures": {
+                "0": { "name": "punctuation.code.close" }
+            },
+            "name": "meta.embedded.block.markdown",
+            "patterns": [ { "include": "text.html.markdown" } ]
+		},
 		"code_sql": {
             "begin": "\\{!sql",
             "end": "\\}",
@@ -149,7 +164,7 @@
             "endCaptures": {
                 "0": { "name": "punctuation.code.close" }
             },
-            "name": "meta.embedded.block.html",
+            "name": "meta.embedded.block.shell",
             "patterns": [ { "include": "source.shell" } ]
 		},
 		"curly_string": {
