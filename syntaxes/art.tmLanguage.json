@@ -21,6 +21,12 @@
 			"include": "#strings"
 		},
 		{
+			"include": "#safe_strings"
+		},
+		{
+			"include": "#smart_strings"
+		},
+		{
 			"include": "#code_css"
 		},
 		{
@@ -107,9 +113,27 @@
 				}
 			]
 		},
+		"safe_strings": {
+			"name": "string.quoted.double.art",
+			"begin": "««",
+			"end": "»»"
+		},
+		"smart_strings": {
+			"begin": "(«)",
+			"beginCaptures": {
+                "0": { "name": "meta.attribute.id.html string" }
+            },
+			"patterns": [
+				{
+					"name": "markup.bold",
+					"match": "."
+				}
+			],
+			"end": "$"
+		},
 		"code_css": {
-            "begin": "\\{!css",
-            "end": "\\}",
+            "begin": "\\{!css:?",
+            "end": "\\:?}",
             "beginCaptures": {
                 "0": { "name": "punctuation.code.open" }
             },
@@ -120,8 +144,8 @@
             "patterns": [ { "include": "source.css" } ]
 		},
 		"code_html": {
-            "begin": "\\{!html",
-            "end": "\\}",
+            "begin": "\\{!html:?",
+            "end": "\\:?}",
             "beginCaptures": {
                 "0": { "name": "punctuation.code.open" }
             },
@@ -132,8 +156,8 @@
             "patterns": [ { "include": "text.html.derivative" } ]
 		},
 		"code_md": {
-            "begin": "\\{!md",
-            "end": "\\}",
+            "begin": "\\{!md:?",
+            "end": "\\:?}",
             "beginCaptures": {
                 "0": { "name": "punctuation.code.open" }
             },
@@ -144,8 +168,8 @@
             "patterns": [ { "include": "text.html.markdown" } ]
 		},
 		"code_sql": {
-            "begin": "\\{!sql",
-            "end": "\\}",
+            "begin": "\\{!sql:?",
+            "end": "\\:?}",
             "beginCaptures": {
                 "0": { "name": "punctuation.code.open" }
             },
@@ -156,8 +180,8 @@
             "patterns": [ { "include": "source.sql" } ]
 		},
 		"code_sh": {
-            "begin": "\\{!sh",
-            "end": "\\}",
+            "begin": "\\{!sh:?",
+            "end": "\\:?}",
             "beginCaptures": {
                 "0": { "name": "punctuation.code.open" }
             },
@@ -168,8 +192,8 @@
             "patterns": [ { "include": "source.shell" } ]
 		},
 		"curly_string": {
-            "begin": "\\{",
-            "end": "\\}",
+            "begin": "\\{:?",
+            "end": "\\:?}",
             "beginCaptures": {
                 "0": { "name": "punctuation.code.open" }
             },
@@ -179,15 +203,11 @@
             "name": "text.plain.art"
 		},
 		"string_block": {
-            "begin": "---",
-            "end": "---",
+            "begin": "(\\-{3,})",
             "beginCaptures": {
-                "0": { "name": "punctuation.code.open" }
+                "0": { "name": "meta.attribute.id.html string" }
             },
-            "endCaptures": {
-                "0": { "name": "punctuation.code.close" }
-            },
-            "name": "string.quoted.double.art"
+            "name": "text.plain.art"
 		},
 		"constants": {
 			"patterns": [{
@@ -198,13 +218,13 @@
 		"sugar": {
 			"patterns": [{
 				"name": "meta.attribute.id.html string",
-				"match": "(->|=>|\\||\\:\\:)"
+				"match": "(->|=>|\\||\\:\\:|[\\-]{3,})"
 			}]
 		},
 		"operators": {
 			"patterns": [{
 				"name": "keyword.operator.art",
-				"match": "<\\:|\\-\\:|ø|@|#|\\+|\\||\\*|\\$|\\-|\\%|\\/|\\.\\.|\\^|~|=|<|>|\\\\|\\-\\-\\-"
+				"match": "<\\:|\\-\\:|ø|@|#|\\+|\\||\\*|\\$|\\-|\\%|\\/|\\.\\.|\\^|~|=|<|>|\\\\"
 			}]
 		},
 		"literals": {
