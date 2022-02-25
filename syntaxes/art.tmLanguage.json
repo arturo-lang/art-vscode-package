@@ -36,6 +36,9 @@
 			"include": "#code_md"
 		},
 		{
+			"include": "#code_js"
+		},
+		{
 			"include": "#code_sql"
 		},
 		{
@@ -166,6 +169,18 @@
             },
             "name": "meta.embedded.block.markdown",
             "patterns": [ { "include": "text.html.markdown" } ]
+		},
+		"code_js": {
+            "begin": "\\{!js:?",
+            "end": "\\:?}",
+            "beginCaptures": {
+                "0": { "name": "punctuation.code.open" }
+            },
+            "endCaptures": {
+                "0": { "name": "punctuation.code.close" }
+            },
+            "name": "meta.embedded.block.js",
+            "patterns": [ { "include": "source.js" } ]
 		},
 		"code_sql": {
             "begin": "\\{!sql:?",
