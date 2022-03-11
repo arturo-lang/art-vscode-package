@@ -45,6 +45,9 @@
 			"include": "#code_sh"
 		},
 		{
+			"include": "#curly_regex"
+		},
+		{
 			"include": "#curly_string"
 		},
 		{
@@ -136,7 +139,7 @@
 		},
 		"code_css": {
             "begin": "\\{!css:?",
-            "end": "\\:?}",
+            "end": ":?\\}",
             "beginCaptures": {
                 "0": { "name": "punctuation.code.open" }
             },
@@ -148,7 +151,7 @@
 		},
 		"code_html": {
             "begin": "\\{!html:?",
-            "end": "\\:?}",
+            "end": ":?\\}",
             "beginCaptures": {
                 "0": { "name": "punctuation.code.open" }
             },
@@ -160,7 +163,7 @@
 		},
 		"code_md": {
             "begin": "\\{!md:?",
-            "end": "\\:?}",
+            "end": ":?\\}",
             "beginCaptures": {
                 "0": { "name": "punctuation.code.open" }
             },
@@ -172,7 +175,7 @@
 		},
 		"code_js": {
             "begin": "\\{!js:?",
-            "end": "\\:?}",
+            "end": ":?\\}",
             "beginCaptures": {
                 "0": { "name": "punctuation.code.open" }
             },
@@ -184,7 +187,7 @@
 		},
 		"code_sql": {
             "begin": "\\{!sql:?",
-            "end": "\\:?}",
+            "end": ":?\\}",
             "beginCaptures": {
                 "0": { "name": "punctuation.code.open" }
             },
@@ -196,7 +199,7 @@
 		},
 		"code_sh": {
             "begin": "\\{!sh:?",
-            "end": "\\:?}",
+            "end": ":?\\}",
             "beginCaptures": {
                 "0": { "name": "punctuation.code.open" }
             },
@@ -206,9 +209,20 @@
             "name": "meta.embedded.block.shell",
             "patterns": [ { "include": "source.shell" } ]
 		},
+		"curly_regex": {
+            "begin": "\\{/",
+            "end": "/\\}",
+            "beginCaptures": {
+                "0": { "name": "punctuation.code.open" }
+            },
+            "endCaptures": {
+                "0": { "name": "punctuation.code.close" }
+            },
+            "name": "string.regex.art"
+		},
 		"curly_string": {
             "begin": "\\{:?",
-            "end": "\\:?}",
+            "end": ":?\\}",
             "beginCaptures": {
                 "0": { "name": "punctuation.code.open" }
             },
