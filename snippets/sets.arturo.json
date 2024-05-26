@@ -82,6 +82,6 @@
         "scope": "art",
         "prefix": "superset?",
         "body": "(${1|block,@[]}) ⊃ (${2|block,@[]})"
-    },
+    }
 
 }
