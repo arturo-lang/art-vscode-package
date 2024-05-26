@@ -19,6 +19,12 @@
             "extensions": [".art"],
             "configuration": "./language-configuration.json"
         }],
+        "snippets": [
+            {
+                "language": "arturo",
+                "path": "./snippets/*.json"
+            }
+        ],
         "grammars": [{
             "language": "art",
             "scopeName": "source.arturo",
