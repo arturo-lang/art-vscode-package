@@ -1,0 +1,117 @@
+{
+	
+	"add function": {
+		"scope": "art",
+		"prefix": "add",
+		"body": "add $1 $2"
+	},
+	
+	"add sign": {
+		"scope": "art",
+		"prefix": "add",
+		"body": "$1 + $2"
+	},
+	
+	"dec function": {
+		"scope": "art",
+		"prefix": "dec",
+		"body": "dec $1"
+	},
+
+	"div function": {
+		"scope": "art",
+		"prefix": "div",
+		"body": "div $1 $2"
+	},
+	
+	"div sign": {
+		"scope": "art",
+		"prefix": "div",
+		"body": "$1 / $2"
+	},
+	
+	"divmod function": {
+		"scope": "art",
+		"prefix": "divmod",
+		"body": "divmod $1 $2"
+	},
+	
+	"divmod sign": {
+		"scope": "art",
+		"prefix": "divmod",
+		"body": "$1 /% $2"
+	},
+	
+	"fdiv function": {
+		"scope": "art",
+		"prefix": "fdiv",
+		"body": "fdiv $1 $2"
+	},
+	
+	"fdiv sign": {
+		"scope": "art",
+		"prefix": "fdiv",
+		"body": "$1 // $2"
+	},
+
+	"inc function": {
+		"scope": "art",
+		"prefix": "inc",
+		"body": "inc $1 $2"
+	},
+
+	"mod function": {
+		"scope": "art",
+		"prefix": "mod",
+		"body": "mod $1 $2"
+	},
+	
+	"mod sign": {
+		"scope": "art",
+		"prefix": "mod",
+		"body": "$1 % $2"
+	},
+	
+	"mul function": {
+		"scope": "art",
+		"prefix": "mul",
+		"body": "mul $1 $2"
+	},
+	
+	"mul sign": {
+		"scope": "art",
+		"prefix": "mul",
+		"body": "$1 * $2"
+	},
+
+	"neg function": {
+		"scope": "art",
+		"prefix": "neg",
+		"body": "neg $1"
+	},
+
+	"power function": {
+		"scope": "art",
+		"prefix": "pow",
+		"body": "pow $1 $2"
+	},
+	
+	"power sign": {
+		"scope": "art",
+		"prefix": "pow",
+		"body": "$1 ^ $2"
+	},
+
+	"sub function": {
+		"scope": "art",
+		"prefix": "sub",
+		"body": "sub $1 $2"
+	},
+
+	"sub sign": {
+		"scope": "art",
+		"prefix": "sub",
+		"body": "$1 - $2"
+	}
+
+}
