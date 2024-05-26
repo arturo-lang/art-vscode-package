@@ -354,6 +354,12 @@
         "scope": "arturo",
         "prefix": "null",
         "body": "null"
-    }
+    },
+
+	"null sign": {
+        "scope": "art",
+        "prefix": "null",
+        "body": "∅"
+    },
 
 }
