@@ -1,0 +1,359 @@
+{
+	
+	"alias function": {
+		"scope": "art",
+		"prefix": "alias",
+		"body": "alias ${1:symbol} ${2:function}"
+	},
+	
+    "alias.infix function": {
+		"scope": "art",
+		"prefix": "alias.infix",
+		"body": "alias.infix ${1:symbol} ${2:function}"
+	},
+
+    "break function": {
+		"scope": "art",
+		"prefix": "break",
+		"body": "break"
+	},
+    
+    "call function": {
+		"scope": "art",
+		"prefix": "call",
+		"body": "call ${1:function} ${2|params,[],@[]|}"
+	},
+    
+    "call external function": {
+		"scope": "art",
+		"prefix": "call.external",
+		"body": "call.external: ${0:path} ${1:function} ${2|params,[],@[]|}"
+	},
+    
+    "call expect function": {
+		"scope": "art",
+		"prefix": "call.expect",
+		"body": "call.expect: ${0:type} ${1:function} ${2|params,[],@[]|}"
+	},
+    
+    "case function": {
+		"scope": "art",
+		"prefix": "case",
+		"body": [
+            "case ${1|predicate,[],@[]|}",
+            "    $2"
+        ]
+	},
+
+    "coalesce function": {
+		"scope": "art",
+		"prefix": "coalesce",
+		"body": "coalesce ${1:variable} ${2:default}"
+	},
+    
+    "coalesce sign": {
+		"scope": "art",
+		"prefix": "coalesce",
+		"body": "${1:variable} ?? ${2:default}"
+	},
+    
+    "continue function": {
+		"scope": "art",
+		"prefix": "continue",
+		"body": "continue"
+	},
+    
+    "do function": {
+		"scope": "art",
+		"prefix": "do",
+		"body": "do ${1|code,\"\",[],-> |}"
+	},
+    
+    "do.times function": {
+		"scope": "art",
+		"prefix": "do.times",
+		"body": "do.times: $0 ${1|code,\"\",[],-> |}"
+	},
+
+    "dup function": {
+		"scope": "art",
+		"prefix": "dup",
+		"body": "dup ${0:value}"
+	},
+    
+    "dup sign": {
+		"scope": "art",
+		"prefix": "dup",
+		"body": "<= ${0:value}"
+	},
+    
+    "else function": {
+		"scope": "art",
+		"prefix": "else",
+		"body": "else ${1|block,-> ,[]|}"
+	},
+    
+    "else multiline function": {
+		"scope": "art",
+		"prefix": "else",
+		"body": [
+            "else [",
+            "    $0",
+            "]"
+        ]
+	},
+
+    "ensure function": {
+		"scope": "art",
+		"prefix": "ensure",
+		"body": "ensure ${1|block,-> ,[]|}"
+	},
+    
+    "ensure.that function": {
+		"scope": "art",
+		"prefix": "ensure.that",
+		"body": [
+            "ensure.that: \"$1\"",
+            "    ${2|block,-> ,[]|}"
+        ]
+	},
+    
+    "function function": {
+		"scope": "art",
+		"prefix": "function",
+		"body": [
+            "function [${1:args}][",
+            "    $3",
+            "]"
+        ]
+	},
+    
+    "function sign": {
+		"scope": "art",
+		"prefix": "function",
+		"body": [
+            "$[${1:args}][",
+            "    $2",
+            "]"
+        ]
+	},
+
+    "if function": {
+		"scope": "art",
+		"prefix": "if",
+		"body": "if ${1:condition} ${2|block,-> ,[]|}"
+	},
+    
+    "if multiline function": {
+		"scope": "art",
+		"prefix": "if",
+		"body": [
+            "if ${1:condition} [",
+            "    $0",
+            "]"
+        ]
+	},
+
+    "import function": {
+		"scope": "art",
+		"prefix": "import",
+		"body": "import {${1:package}}"
+	},
+    
+    "import local function": {
+		"scope": "art",
+		"prefix": "import.local",
+		"body": "import ./{${1:package}}"
+	},
+    
+    "import.lean function": {
+		"scope": "art",
+		"prefix": "import.lean",
+		"body": "import.lean {${1:package}}"
+	},
+    
+    "let function": {
+		"scope": "art",
+		"prefix": "let",
+		"body": "let ${1|'variable,\"variable\"|} $0"
+	},
+    
+    "let sign": {
+		"scope": "art",
+		"prefix": "let",
+		"body": "${1|variable|}: $0"
+	},
+    
+    "method function": {
+		"scope": "art",
+		"prefix": "method",
+		"body": [
+            "method [${1:args}][",
+            "    $0",
+            "]"
+        ]
+	},
+    
+    "new function": {
+		"scope": "art",
+		"prefix": "method",
+		"body": "new $0"
+	},
+    
+    "return function": {
+		"scope": "art",
+		"prefix": "method",
+		"body": "return $0"
+	},
+    
+    "switch function": {
+		"scope": "art",
+		"prefix": "method",
+		"body": [
+            "switch ${1:condition}",
+            "    -> ${2:action}",
+            "    -> ${3:alternative}"
+        ]
+	},
+    
+    "switch multiline function": {
+		"scope": "art",
+		"prefix": "method",
+		"body": [
+            "switch ${1:condition} [",
+            "    ${2:action}",
+            "  ][",
+            "    ${3:alternative}",
+            "]",
+        ]
+	},
+
+    "unless function": {
+		"scope": "art",
+		"prefix": "unless",
+		"body": "unless ${1:condition} ${2|block,-> ,[]|}"
+	},
+    
+    "unless multiline function": {
+		"scope": "art",
+		"prefix": "unless",
+		"body": [
+            "unless ${1:condition} [",
+            "    $0",
+            "]"
+        ]
+	},
+
+    "unstack function": {
+		"scope": "art",
+		"prefix": "unstack",
+		"body": "unstack ${1:number}"
+	},
+    
+    "unstack.discard function": {
+		"scope": "art",
+		"prefix": "unstack.discard",
+		"body": "unstack.discard ${1:number}"
+	},
+
+    "until function": {
+		"scope": "art",
+		"prefix": "until",
+		"body": [
+            "until [",
+            "    $0",
+            "][${1:condition}]"
+        ]
+	},
+
+    "var function": {
+		"scope": "art",
+		"prefix": "var",
+		"body": "var '${1:symbol}"
+	},
+
+    "while function": {
+		"scope": "art",
+		"prefix": "while",
+		"body": [
+            "while [${1:condition}][",
+            "    $0",
+            "]"
+        ]
+	},
+    
+    "with function": {
+		"scope": "art",
+		"prefix": "with",
+		"body": [
+            "with ${1|embed,[],'embed|}[",
+            "    $0",
+            "]"
+        ]
+	},
+
+    "if? function": {
+		"scope": "art",
+		"prefix": "if?",
+		"body": [
+            "if? ${1:condition} -> ${2:action}}",
+            "else -> ${3:alternative}",
+        ]
+	},
+    
+    "if? multiline function": {
+		"scope": "art",
+		"prefix": "if?",
+		"body": [
+            "if? ${1:condition} [",
+            "    ${2:action}",
+            "] else [",
+            "    ${3:alternative}",
+            "]",
+        ]
+	},
+
+    "unless? function": {
+		"scope": "art",
+		"prefix": "unless?",
+		"body": [
+            "unless? ${1:condition} -> ${2:action}}",
+            "else -> ${3:alternative}",
+        ]
+	},
+
+    "unless? multiline function": {
+		"scope": "art",
+		"prefix": "unless?",
+		"body": [
+            "unless? ${1:condition} [",
+            "    ${2:action}",
+            "] else [",
+            "    ${3:alternative}",
+            "]",
+        ]
+	},
+    
+    "when? function": {
+		"scope": "art",
+		"prefix": "when?",
+		"body": "when? [${1:condition}] -> $0"
+	},
+
+    "when? multiline function": {
+		"scope": "art",
+		"prefix": "when?",
+		"body": [
+            "when? ${1:condition} [",
+            "    $0",
+            "]"
+        ]
+	},
+
+    "null constant": {
+        "scope": "arturo",
+        "prefix": "null",
+        "body": "null"
+    }
+
+}
