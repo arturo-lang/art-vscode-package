@@ -1,0 +1,87 @@
+{
+
+    "difference function": {
+        "scope": "art",
+        "prefix": "difference",
+        "body": "difference ${1|block,@[]} ${2|block,@[]}"
+    },
+
+    "intersection function": {
+        "scope": "art",
+        "prefix": "intersection",
+        "body": "intersection ${1|block,@[]} ${2|block,@[]}"
+    },
+
+    "intersection sign": {
+        "scope": "art",
+        "prefix": "intersection",
+        "body": "(${1|block,@[]}) ∩ (${2|block,@[]})"
+    },
+
+    "powerset function": {
+        "scope": "art",
+        "prefix": "powerset",
+        "body": "powerset ${1|block,@[]}"
+    },
+
+    "union function": {
+        "scope": "art",
+        "prefix": "union",
+        "body": "union ${1|block,@[]} ${2|block,@[]}"
+    },
+
+    "union sign": {
+        "scope": "art",
+        "prefix": "union",
+        "body": "(${1|block,@[]}) ∪ (${2|block,@[]})"
+    },
+
+    "disjoint? function": {
+        "scope": "art",
+        "prefix": "disjoint?",
+        "body": "disjoint? ${1|block,@[]} ${2|block,@[]}"
+    },
+    
+    "intersect? function": {
+        "scope": "art",
+        "prefix": "intersect?",
+        "body": "intersect? ${1|block,@[]} ${2|block,@[]}"
+    },
+
+    "subset? function": {
+        "scope": "art",
+        "prefix": "subset?",
+        "body": "subset? ${1|block,@[]} ${2|block,@[]}"
+    },
+    
+    "subset?.proper function": {
+        "scope": "art",
+        "prefix": "subset?.proper",
+        "body": "subset?.proper ${1|block,@[]} ${2|block,@[]}"
+    },
+
+    "subset? sign": {
+        "scope": "art",
+        "prefix": "subset?",
+        "body": "(${1|block,@[]}) ⊆ (${2|block,@[]})"
+    },
+    
+    "superset? function": {
+        "scope": "art",
+        "prefix": "superset?",
+        "body": "superset? ${1|block,@[]} ${2|block,@[]}"
+    },
+    
+    "superset?.proper function": {
+        "scope": "art",
+        "prefix": "superset?.proper",
+        "body": "superset?.proper ${1|block,@[]} ${2|block,@[]}"
+    },
+
+    "superset? sign": {
+        "scope": "art",
+        "prefix": "superset?",
+        "body": "(${1|block,@[]}) ⊃ (${2|block,@[]})"
+    },
+
+}
