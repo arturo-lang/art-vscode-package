@@ -1,0 +1,39 @@
+{
+
+    "product function": {
+        "scope": "art",
+        "prefix": "product",
+        "body": "product ${1|block,@[]}"
+    },
+
+    "product sign": {
+        "scope": "art",
+        "prefix": "product",
+        "body": "∏ ${1|block,@[]}"
+    },
+
+    "sum function": {
+        "scope": "art",
+        "prefix": "sum",
+        "body": "sum ${1|block,@[]}"
+    },
+
+    "sum sign": {
+        "scope": "art",
+        "prefix": "sum",
+        "body": "∑ ${1|block,@[]}"
+    },
+
+    "infinite constant": {
+        "scope": "art",
+        "prefix": "infinity",
+        "body": "infinity"
+    },
+    
+    "infinite sign": {
+        "scope": "art",
+        "prefix": "infinity",
+        "body": "∞"
+    }
+
+}
