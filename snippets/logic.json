@@ -1,0 +1,117 @@
+{
+
+    "all? function": {
+        "scope": "art",
+        "prefix": "all?",
+        "body": "all? ${1|conditions,@[]}"
+    },
+
+    "and? function": {
+        "scope": "art",
+        "prefix": "and?",
+        "body": "and? $1 $2"
+    },
+ 
+    "and? sign": {
+        "scope": "art",
+        "prefix": "and?",
+        "body": "$1 ∧ $2"
+    },
+
+    "any? function": {
+        "scope": "art",
+        "prefix": "any?",
+        "body": "any? ${1|conditions,@[]}"
+    },
+    
+    "false? function": {
+        "scope": "art",
+        "prefix": "false?",
+        "body": "false? $0"
+    },
+    
+    "nand? function": {
+        "scope": "art",
+        "prefix": "nand?",
+        "body": "nand? $1 $2"
+    },
+ 
+    "nand? sign": {
+        "scope": "art",
+        "prefix": "nand?",
+        "body": "$1 ⊼ $2"
+    },
+
+    "nor? function": {
+        "scope": "art",
+        "prefix": "nor?",
+        "body": "nor? $1 $2"
+    },
+   
+    "not? function": {
+        "scope": "art",
+        "prefix": "not?",
+        "body": "not? $0"
+    },
+ 
+    "not? sign": {
+        "scope": "art",
+        "prefix": "not?",
+        "body": "¬$0"
+    },
+    
+    "or? function": {
+        "scope": "art",
+        "prefix": "or?",
+        "body": "or? $1 $2"
+    },
+ 
+    "or? sign": {
+        "scope": "art",
+        "prefix": "or?",
+        "body": "$1 ∨ $2"
+    },
+
+    "true? function": {
+        "scope": "art",
+        "prefix": "true?",
+        "body": "true? $0"
+    },
+
+    "xor? function": {
+        "scope": "art",
+        "prefix": "xor?",
+        "body": "xor? $1 $2"
+    },
+ 
+    "xor? sign": {
+        "scope": "art",
+        "prefix": "xor?",
+        "body": "$1 ⊻ $2"
+    },
+
+    "xnor? function": {
+        "scope": "art",
+        "prefix": "xnor?",
+        "body": "xnor? $1 $2"
+    },
+
+    "false constant": {
+        "scope": "art",
+        "prefix": "false",
+        "body": "false"
+    },
+    
+    "true constant": {
+        "scope": "art",
+        "prefix": "true",
+        "body": "true"
+    },
+
+    "maybe constant": {
+        "scope": "art",
+        "prefix": "maybe",
+        "body": "maybe"
+    }
+
+}
