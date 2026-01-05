@@ -29,7 +29,8 @@
             { "language": "art", "path": "./snippets/exceptions.json" },
             { "language": "art", "path": "./snippets/io.json" },
             { "language": "art", "path": "./snippets/iterators.json" },
-            { "language": "art", "path": "./snippets/logic.json" }
+            { "language": "art", "path": "./snippets/logic.json" },
+            { "language": "art", "path": "./snippets/numbers.json" }
         ]
     }
 }
