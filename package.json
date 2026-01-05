@@ -23,6 +23,9 @@
             "language": "art",
             "scopeName": "source.arturo",
             "path": "./syntaxes/art.tmLanguage.json"
-        }]
+        }],
+        "snippets": [
+            { "language": "art", "path": "./snippets/core.json" }
+        ]
     }
 }
