@@ -1,0 +1,11 @@
+{
+    "And": { "prefix": "and", "body": [ "and $1 $2" ] },
+    "Or": { "prefix": "or", "body": [ "or $1 $2" ] },
+    "Not": { "prefix": "not", "body": [ "not $1" ] },
+    "Nand": { "prefix": "nand", "body": [ "nand $1 $2" ] },
+    "Nor": { "prefix": "nor", "body": [ "nor $1 $2" ] },
+    "Xor": { "prefix": "xor", "body": [ "xor $1 $2" ] },
+    "Xnor": { "prefix": "xnor", "body": [ "xnor $1 $2" ] },
+    "Shift Left": { "prefix": "shl", "body": [ "shl $1 $2" ] },
+    "Shift Right": { "prefix": "shr", "body": [ "shr $1 $2" ] }
+}
