@@ -14,7 +14,8 @@
     "Cosin": { "prefix": "cos", "body": [ "cos 1" ] },
     "Sin": { "prefix": "sin", "body": [ "sin 1" ] },
     "Tan": { "prefix": "tan", "body": [ "tan 1" ] },
-    "Sum": { "prefix": "sum", "body": [ "sum ${1:container}" ] },
+    "Sum": { "prefix": "sum", "body": [ "∑ ${1:container}" ] },
+    "Product": { "prefix": "product", "body": [ "∏ ${1:container}" ] },
     "Square Root": { "prefix": "sqrt", "body": [ "sqrt ${1:number}" ] },
     "Round": { "prefix": "round", "body": [ "round $1" ] }
 }
