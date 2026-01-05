@@ -5,7 +5,7 @@
     "version": "0.5.1",
     "publisher": "drkameleon",
     "repository": "https://github.com/arturo-lang/art-vscode-package",
-    "icon": "images/grayLogo.png",
+    "icon": "icon/gray.png",
     "engines": {
         "vscode": "^1.52.0"
     },
