@@ -25,6 +25,7 @@
             "path": "./syntaxes/art.tmLanguage.json"
         }],
         "snippets": [
+            { "language": "art", "path": "./snippets/arithmetic.json" },
             { "language": "art", "path": "./snippets/core.json" },
             { "language": "art", "path": "./snippets/exceptions.json" },
             { "language": "art", "path": "./snippets/io.json" },
