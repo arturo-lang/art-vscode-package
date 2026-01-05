@@ -1,0 +1,20 @@
+{
+    "Epsilon": { "prefix": "epsilon", "body": ["ε"] },
+    "Infinite": { "prefix": "infinite", "body": ["∞"] },
+    "Pi": { "prefix": "pi", "body": ["π"] },
+    "Tau": { "prefix": "tau", "body": ["τ"] },
+
+    "Infinite?": { "prefix": "infinite?", "body": [ "infinite? $1" ] },
+    "Negative?": { "prefix": "negative?", "body": [ "negative? $1" ] },
+    "Positive?": { "prefix": "positive?", "body": [ "positive? $1" ] },
+    "Prime?": { "prefix": "prime?", "body": [ "prime? $1" ] },
+    "Even?": { "prefix": "even?", "body": [ "even? $1" ] },
+    "Odd?": { "prefix": "odd?", "body": [ "odd? $1" ] },
+
+    "Cosin": { "prefix": "cos", "body": [ "cos 1" ] },
+    "Sin": { "prefix": "sin", "body": [ "sin 1" ] },
+    "Tan": { "prefix": "tan", "body": [ "tan 1" ] },
+    "Sum": { "prefix": "sum", "body": [ "sum ${1:container}" ] },
+    "Square Root": { "prefix": "sqrt", "body": [ "sqrt ${1:number}" ] },
+    "Round": { "prefix": "round", "body": [ "round $1" ] }
+}
