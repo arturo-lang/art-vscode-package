@@ -30,7 +30,8 @@
             { "language": "art", "path": "./snippets/io.json" },
             { "language": "art", "path": "./snippets/iterators.json" },
             { "language": "art", "path": "./snippets/logic.json" },
-            { "language": "art", "path": "./snippets/numbers.json" }
+            { "language": "art", "path": "./snippets/numbers.json" },
+            { "language": "art", "path": "./snippets/strings.json" }
         ]
     }
 }
