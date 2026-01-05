@@ -1,8 +1,8 @@
 {
-    "Epsilon": { "prefix": "epsilon", "body": ["ε"] },
+    "Epsilon": { "prefix": "epsilon", "body": ["epsilon"] },
     "Infinite": { "prefix": "infinite", "body": ["∞"] },
-    "Pi": { "prefix": "pi", "body": ["π"] },
-    "Tau": { "prefix": "tau", "body": ["τ"] },
+    "Pi": { "prefix": "pi", "body": ["pi"] },
+    "Tau": { "prefix": "tau", "body": ["tau"] },
 
     "Infinite?": { "prefix": "infinite?", "body": [ "infinite? $1" ] },
     "Negative?": { "prefix": "negative?", "body": [ "negative? $1" ] },
