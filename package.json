@@ -23,6 +23,11 @@
             "language": "art",
             "scopeName": "source.arturo",
             "path": "./syntaxes/art.tmLanguage.json"
+        }],
+        "iconThemes": [{
+            "id": "art",
+            "label": "Arturo Icons",
+            "path": "icons/config.json"
         }]
     }
 }

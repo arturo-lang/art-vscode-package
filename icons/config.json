@@ -1,0 +1,17 @@
+{
+    "iconDefinitions": {
+        "default": { "iconPath": "./gray.png" },
+        "special": { "iconPath": "./purple.png"}
+    },
+
+    "fileExtensions": {
+        "art": "default",
+        "test.art": "special",
+        "spec.art": "special"
+    },
+    "languageIds": { "art": "default" },
+    "fileNames": {
+        "info.art": "special",
+        "config.art": "special"
+    }
+}
