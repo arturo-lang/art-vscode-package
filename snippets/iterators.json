@@ -1,0 +1,147 @@
+{
+    "Loop": {
+        "prefix": "loop",
+        "body": [
+            "loop ${1:container} [${2:element}] [",
+            "    ${3:code}",
+            "]"
+        ]
+    },
+
+    "Loop (with: i)": {
+        "prefix": "loop.with",
+        "body": [
+            "loop.with: 'i ${1:container} [${2:element}] [",
+            "    ${3:code}",
+            "]"
+        ]
+    },
+
+    "Map": {
+        "prefix": "map",
+        "body": [ "map ${1:container} '${2:it} -> ${3:code}" ]
+    },
+    
+    "Map (Short)": {
+        "prefix": "map",
+        "body": [ "map ${1:container} => [${2:code}]" ]
+    },
+
+    "Map (X)": {
+        "prefix": "map",
+        "body": [ "map ${1:container} 'x -> ${2:code}" ]
+    },
+
+
+    "Select": {
+        "prefix": "select",
+        "body": [ "select ${1:container} '${2:it} -> ${3:code}" ]
+    },
+    
+    "Select (Short)": {
+        "prefix": "select",
+        "body": [ "select ${1:container} => [${2:code}]" ]
+    },
+
+    "Select (X)": {
+        "prefix": "select",
+        "body": [ "select ${1:container} 'x -> ${2:code}" ]
+    },
+
+
+    "Filter": {
+        "prefix": "filter",
+        "body": [ "filter ${1:container} '${2:it} -> ${3:code}" ]
+    },
+    
+    "Filter (Short)": {
+        "prefix": "filter",
+        "body": [ "filter ${1:container} => [${2:code}]" ]
+    },
+
+    "Filter (X)": {
+        "prefix": "filter",
+        "body": [ "filter ${1:container} 'x -> ${2:code}" ]
+    },
+
+
+    "Every?": {
+        "prefix": "every?",
+        "body": [ "every? ${1:container} '${2:it} -> ${3:code}" ]
+    },
+    
+    "Every? (Short)": {
+        "prefix": "every?",
+        "body": [ "every? ${1:container} => [${2:code}]" ]
+    },
+
+    "Every? (X)": {
+        "prefix": "every?",
+        "body": [ "every? ${1:container} 'x -> ${2:code}" ]
+    },
+
+
+    "Some?": {
+        "prefix": "some?",
+        "body": [ "some? ${1:container} '${2:it} -> ${3:code}" ]
+    },
+    
+    "Some? (Short)": {
+        "prefix": "some?",
+        "body": [ "some? ${1:container} => [${2:code}]" ]
+    },
+
+    "Some? (X)": {
+        "prefix": "some?",
+        "body": [ "some? ${1:container} 'x -> ${2:code}" ]
+    },
+
+
+    "Enumerate": {
+        "prefix": "enumerate",
+        "body": [ "enumerate ${1:container} '${2:it} -> ${3:code}" ]
+    },
+    
+    "Enumerate (Short)": {
+        "prefix": "enumerate",
+        "body": [ "enumerate ${1:container} => [${2:code}]" ]
+    },
+
+    "Enumerate (X)": {
+        "prefix": "enumerate",
+        "body": [ "enumerate ${1:container} 'x -> ${2:code}" ]
+    },
+
+
+    "Collect": {
+        "prefix": "collect",
+        "body": [ "collect ${1:container} '${2:it} -> ${3:code}" ]
+    },
+    
+    "Collect (Short)": {
+        "prefix": "collect",
+        "body": [ "collect ${1:container} => [${2:code}]" ]
+    },
+
+    "Collect (X)": {
+        "prefix": "collect",
+        "body": [ "collect ${1:container} 'x -> ${2:code}" ]
+    },
+
+
+    "Fold": {
+        "prefix": "fold",
+        "body": [ "fold ${1:container} '${2:it} -> ${3:code}" ]
+    },
+    
+    "Fold (Short)": {
+        "prefix": "fold",
+        "body": [ "fold ${1:container} => [${2:code}]" ]
+    },
+
+    "Fold (X)": {
+        "prefix": "fold",
+        "body": [ "fold ${1:container} 'x -> ${2:code}" ]
+    }
+
+}
