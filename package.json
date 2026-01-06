@@ -4,7 +4,7 @@
   "description": "Syntax highlighting for the Arturo programming language",
   "version": "0.6.1",
   "publisher": "drkameleon",
-  "repository": "https://github.com/arturo-lang/art-vscode-package",
+  "repository": "https://github.com/arturo-lang/vscode-extension",
   "icon": "icons/gray.png",
   "engines": {
     "vscode": "^1.52.0"
