@@ -1,4 +1,4 @@
-name: Extension
+name: Publish
 
 on:
     push:
@@ -6,7 +6,7 @@ on:
             - 'v*.*.*'
 
 jobs:
-    Publish:
+    Extension:
         runs-on: ubuntu-latest
         
         steps:

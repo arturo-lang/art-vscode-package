@@ -1,11 +1,11 @@
-name: Extension
+name: Validate
 
 on:
     pull_request:
     workflow_dispatch:
 
 jobs:
-    Validate:
+    Extension:
         runs-on: ubuntu-latest
         
         steps:
