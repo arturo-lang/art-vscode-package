@@ -23,8 +23,11 @@ jobs:
             - name: Validate extension package
               id: validate
               run: |
-                  vsce package --no-git-tag-version 2>&1 | tee vsce_output.log
-                  exit ${PIPESTATUS[0]}
+                  vsce package --no-git-tag-version > vsce_stdout.log 2> vsce_stderr.log || true
+                  cat vsce_stdout.log vsce_stderr.log > vsce_output.log
+                  if grep -q "ERROR" vsce_output.log || grep -q "Error" vsce_output.log; then
+                      exit 1
+                  fi
               continue-on-error: true
             
             - name: Check if package was created
@@ -38,9 +41,23 @@ jobs:
                   script: |
                       const fs = require('fs');
                       const output = fs.readFileSync('vsce_output.log', 'utf8');
-                      // Match either "##[error]..." or " ERROR ..." format
-                      const errorMatch = output.match(/(?:##\[error\]|ERROR\s+)(.+)/);
-                      const errorMsg = errorMatch ? errorMatch[1].trim() : 'Unknown error occurred';
+                      
+                      // Try multiple patterns to extract the error
+                      let errorMsg = 'Unknown error occurred';
+                      
+                      // Pattern 1: Look for lines with ERROR (case insensitive)
+                      const lines = output.split('\n');
+                      for (const line of lines) {
+                          if (line.match(/ERROR/i) || line.match(/Error:/)) {
+                              // Clean up the line - remove ANSI codes, leading symbols, etc
+                              errorMsg = line
+                                  .replace(/\x1b\[[0-9;]*m/g, '') // Remove ANSI codes
+                                  .replace(/^.*?ERROR\s*/i, '')    // Remove everything up to and including ERROR
+                                  .replace(/^.*?Error:\s*/i, '')   // Remove everything up to and including Error:
+                                  .trim();
+                              if (errorMsg) break;
+                          }
+                      }
                       
                       github.rest.issues.createComment({
                           issue_number: context.issue.number,
