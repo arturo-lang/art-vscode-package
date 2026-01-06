@@ -1,0 +1,49 @@
+{
+    "Array": { "prefix": "array", "body": [ "@${1:collection}" ] },
+
+    "Append": { "prefix": "append", "body": [ "append ${1:collection} ${2:element}" ] },
+    "Prepend": { "prefix": "prepend", "body": [ "prepend ${1:collection} ${2:element}" ] },
+
+    "Chop": { "prefix": "chop", "body": [ "chop $1" ] },
+    "Drop": { "prefix": "drop", "body": [ "drop $1" ] },
+
+    "Contains?": { "prefix": "contains?", "body": [ "contains? ${1:collection} ${2:element}" ] },
+    "In?": { "prefix": "in?", "body": [ "in? ${1:element} ${2:collection}" ] },
+    "In? (Infix)": { "prefix": "in?", "body": [ "${1:element} ∈ ${2:collection}" ] },
+
+    "Couple": { "prefix": "couple", "body": [ "couple $1 $2" ] },
+    "Decouple": { "prefix": "decouple", "body": [ "decouple $1" ] },
+
+    "Dictionary": { "prefix": ["dictionary", "#"], "body": [ "#[]" ] },
+
+    "Empty": { "prefix": "empty", "body": [ "empty '$1" ] },
+    "Empty?": { "prefix": "empty?", "body": [ "empty? $1" ] },
+
+    "Extend": { "prefix": "extend", "body": [ "extend $1 #[]" ] },
+
+    "First": { "prefix": "first", "body": [ "first $1" ] },
+    "Last": { "prefix": "last", "body": [ "last $1" ] },
+    "Flatten": { "prefix": "flatten", "body": [ "flatten $1" ] },
+    "Get": { "prefix": "get", "body": [ "get $1 $2" ] },
+    "Set": { "prefix": "set", "body": [ "set ${1:collection} ${2:index} ${3:value}" ] },
+    "Index": { "prefix": "index", "body": [ "index $1 $2" ] },
+    "Insert": { "prefix": "insert", "body": [ "insert ${1:collection} ${2:index} ${3:element}" ] },
+    "Key?": { "prefix": "key?", "body": [ "key? ${1:dictionary} '${2:key}" ] },
+    "Keys": { "prefix": "keys", "body": [ "keys $1" ] },
+    "Range": { "prefix": "range", "body": [ "${1:start}..${2:end}" ] },
+    "Range Step": { "prefix": "range.step", "body": [ "range.step: $3 ${1:start} ${2:end}" ] },
+    "Remove": { "prefix": "remove", "body": [ "remove ${1:collection} ${2:index}" ] },
+    "Slice": { "prefix": "slice", "body": [ "slice ${1:collection} ${2:start} ${3:end}" ] },
+    "Sort": { "prefix": "sort", "body": [ "sort $1" ] },
+    "Split": { "prefix": "split", "body": [ "split $1" ] },
+    "Split By": { "prefix": "split.by", "body": [ "split.by: $2 $1" ] },
+    "Split Words": { "prefix": "split.words", "body": [ "split.words $1" ] },
+    "Split Lines": { "prefix": "split.lines", "body": [ "split.lines $1" ] },
+    "Split Path": { "prefix": "split.path", "body": [ "split.path $1" ] },
+    "Split Every": { "prefix": "split.every", "body": [ "split.every: $2 $1" ] },
+    "Split At": { "prefix": "split.at", "body": [ "split.at: $2 $1" ] },
+
+    "One?": { "prefix": "one?", "body": [ "one? $1" ] },
+    "Zero?": { "prefix": "zero?", "body": [ "zero? $1" ] }
+
+}

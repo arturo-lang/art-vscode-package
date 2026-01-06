@@ -1,0 +1,16 @@
+{
+    "Input": {
+        "prefix": "input",
+        "body": [ "input ${1:prompt}" ]
+    },
+    
+    "Print Line": {
+        "prefix": "print",
+        "body": [ "print ${1:message}" ]
+    },
+    
+    "Print": {
+        "prefix": "prints",
+        "body": [ "prints ${1:message}" ]
+    }
+}
