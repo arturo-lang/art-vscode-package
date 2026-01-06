@@ -2,10 +2,13 @@ name: Extension
 
 on:
     pull_request:
-    workflow_dispatch:
+        branches:
+            - main
+            - master
+            - develop
 
 jobs:
-    Validate:
+    validate:
         runs-on: ubuntu-latest
         
         steps:
@@ -30,11 +33,21 @@ jobs:
                   fi
               continue-on-error: true
             
-            - name: Check if package was created
+            - name: List generated package
               if: steps.validate.outcome == 'success'
-              run: ls -lh *.vsix
+              run: |
+                  if ls *.vsix 1> /dev/null 2>&1; then
+                      ls -lh *.vsix
+                  fi
             
-            - name: Post PR comment on failure
+            - name: Debug log file
+              if: steps.validate.outcome == 'failure'
+              run: |
+                  echo "=== Contents of vsce_output.log ==="
+                  cat vsce_output.log
+                  echo "=== End of log ==="
+            
+            - name: Comment on PR with error
               if: steps.validate.outcome == 'failure'
               uses: actions/github-script@v7
               with:
@@ -66,6 +79,6 @@ jobs:
                           body: `❌ **Extension validation failed**\n\n\`\`\`\n${errorMsg}\n\`\`\`\n\n[View full logs](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})`
                       })
             
-            - name: Make sure workflow fails on validation error
+            - name: Fail workflow if validation failed
               if: steps.validate.outcome == 'failure'
               run: exit 1
