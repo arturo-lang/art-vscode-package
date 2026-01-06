@@ -31,15 +31,16 @@ jobs:
               if: steps.validate.outcome == 'success'
               run: ls -lh *.vsix
             
-            - name: Post comment
+            - name: Comment on PR with error
               if: steps.validate.outcome == 'failure'
               uses: actions/github-script@v7
               with:
                   script: |
                       const fs = require('fs');
                       const output = fs.readFileSync('vsce_output.log', 'utf8');
-                      const errorMatch = output.match(/ERROR\s+(.+)/);
-                      const errorMsg = errorMatch ? errorMatch[1] : 'Unknown error occurred';
+                      // Match either "##[error]..." or " ERROR ..." format
+                      const errorMatch = output.match(/(?:##\[error\]|ERROR\s+)(.+)/);
+                      const errorMsg = errorMatch ? errorMatch[1].trim() : 'Unknown error occurred';
                       
                       github.rest.issues.createComment({
                           issue_number: context.issue.number,
