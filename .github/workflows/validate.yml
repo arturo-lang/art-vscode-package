@@ -22,23 +22,30 @@ jobs:
             
             - name: Validate extension package
               id: validate
-              run: vsce package --no-git-tag-version
+              run: |
+                  vsce package --no-git-tag-version 2>&1 | tee vsce_output.log
+                  exit ${PIPESTATUS[0]}
               continue-on-error: true
             
             - name: List generated package
               if: steps.validate.outcome == 'success'
               run: ls -lh *.vsix
             
-            - name: Comment on PR with error
+            - name: Post comment
               if: steps.validate.outcome == 'failure'
               uses: actions/github-script@v7
               with:
                   script: |
+                      const fs = require('fs');
+                      const output = fs.readFileSync('vsce_output.log', 'utf8');
+                      const errorMatch = output.match(/ERROR\s+(.+)/);
+                      const errorMsg = errorMatch ? errorMatch[1] : 'Unknown error occurred';
+                      
                       github.rest.issues.createComment({
                           issue_number: context.issue.number,
                           owner: context.repo.owner,
                           repo: context.repo.repo,
-                          body: '❌ **Extension validation failed**\n\nThe `vsce package` command encountered errors. Please check the [workflow logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details.'
+                          body: `❌ **Extension validation failed**\n\n\`\`\`\n${errorMsg}\n\`\`\`\n\n[View full logs](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})`
                       })
             
             - name: Fail workflow if validation failed
