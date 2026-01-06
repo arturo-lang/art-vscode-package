@@ -26,11 +26,17 @@ jobs:
             - name: Validate extension package
               id: validate
               run: |
-                  vsce package --no-git-tag-version > vsce_stdout.log 2> vsce_stderr.log || true
+                  set +e  # Don't exit on error
+                  vsce package --no-git-tag-version > vsce_stdout.log 2> vsce_stderr.log
+                  EXIT_CODE=$?
                   cat vsce_stdout.log vsce_stderr.log > vsce_output.log
-                  if grep -q "ERROR" vsce_output.log || grep -q "Error" vsce_output.log; then
-                      exit 1
-                  fi
+                  
+                  echo "=== VSCE Exit Code: $EXIT_CODE ==="
+                  echo "=== Contents of vsce_output.log ==="
+                  cat vsce_output.log
+                  echo "=== End of log ==="
+                  
+                  exit $EXIT_CODE
               continue-on-error: true
             
             - name: List generated package
@@ -39,13 +45,6 @@ jobs:
                   if ls *.vsix 1> /dev/null 2>&1; then
                       ls -lh *.vsix
                   fi
-            
-            - name: Debug log file
-              if: steps.validate.outcome == 'failure'
-              run: |
-                  echo "=== Contents of vsce_output.log ==="
-                  cat vsce_output.log
-                  echo "=== End of log ==="
             
             - name: Comment on PR with error
               if: steps.validate.outcome == 'failure'
