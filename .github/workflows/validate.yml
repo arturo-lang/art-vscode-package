@@ -3,8 +3,9 @@ name: Extension
 on:
     pull_request:
     workflow_dispatch:
+
 jobs:
-    validate:
+    Validate:
         runs-on: ubuntu-latest
         
         steps:
@@ -20,7 +21,26 @@ jobs:
               run: npm install -g @vscode/vsce
             
             - name: Validate extension package
+              id: validate
               run: vsce package --no-git-tag-version
+              continue-on-error: true
             
             - name: List generated package
+              if: steps.validate.outcome == 'success'
               run: ls -lh *.vsix
+            
+            - name: Comment on PR with error
+              if: steps.validate.outcome == 'failure'
+              uses: actions/github-script@v7
+              with:
+                  script: |
+                      github.rest.issues.createComment({
+                          issue_number: context.issue.number,
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          body: '❌ **Extension validation failed**\n\nThe `vsce package` command encountered errors. Please check the [workflow logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details.'
+                      })
+            
+            - name: Fail workflow if validation failed
+              if: steps.validate.outcome == 'failure'
+              run: exit 1
