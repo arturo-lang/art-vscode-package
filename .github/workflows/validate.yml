@@ -1,0 +1,72 @@
+name: Extension
+
+on:
+    pull_request:
+    workflow_dispatch:
+
+jobs:
+    Validate:
+        runs-on: ubuntu-latest
+        
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+            
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '20'
+            
+            - name: Install vsce
+              run: npm install -g @vscode/vsce
+            
+            - name: Validate extension package
+              id: validate
+              run: |
+                  set +e
+                  vsce package --no-git-tag-version > vsce_stdout.log 2> vsce_stderr.log
+                  EXIT_CODE=$?
+                  cat vsce_stdout.log vsce_stderr.log > vsce_output.log
+                  exit $EXIT_CODE
+              continue-on-error: true
+            
+            - name: Double-check if package was created
+              if: steps.validate.outcome == 'success'
+              run: |
+                  if ls *.vsix 1> /dev/null 2>&1; then
+                      ls -lh *.vsix
+                  fi
+            
+            - name: Post comment on PR, on failure
+              if: steps.validate.outcome == 'failure'
+              uses: actions/github-script@v7
+              with:
+                  script: |
+                      const fs = require('fs');
+                      const output = fs.readFileSync('vsce_output.log', 'utf8');
+                      
+                      let errorMsg = 'Unknown error';
+                      
+                      const lines = output.split('\n');
+                      for (const line of lines) {
+                          if (line.includes('##[error]') || line.match(/ERROR/i)) {
+                              errorMsg = line
+                                  .replace(/##\[error\]/i, '')
+                                  .replace(/\x1b\[[0-9;]*m/g, '')
+                                  .replace(/^.*?ERROR\s*/i, '')
+                                  .replace(/^:+\s*/, '')
+                                  .trim();
+                              if (errorMsg) break;
+                          }
+                      }
+                      
+                      github.rest.issues.createComment({
+                          issue_number: context.issue.number,
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          body: `❌ **Extension validation failed**\n\n\`\`\`\n${errorMsg}\n\`\`\`\n\n[View full logs](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})`
+                      })
+            
+            - name: Make job fail on validation error
+              if: steps.validate.outcome == 'failure'
+              run: exit 1
