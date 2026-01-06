@@ -26,16 +26,10 @@ jobs:
             - name: Validate extension package
               id: validate
               run: |
-                  set +e  # Don't exit on error
+                  set +e
                   vsce package --no-git-tag-version > vsce_stdout.log 2> vsce_stderr.log
                   EXIT_CODE=$?
                   cat vsce_stdout.log vsce_stderr.log > vsce_output.log
-                  
-                  echo "=== VSCE Exit Code: $EXIT_CODE ==="
-                  echo "=== Contents of vsce_output.log ==="
-                  cat vsce_output.log
-                  echo "=== End of log ==="
-                  
                   exit $EXIT_CODE
               continue-on-error: true
             
@@ -54,18 +48,16 @@ jobs:
                       const fs = require('fs');
                       const output = fs.readFileSync('vsce_output.log', 'utf8');
                       
-                      // Try multiple patterns to extract the error
                       let errorMsg = 'Unknown error occurred';
                       
-                      // Pattern 1: Look for lines with ERROR (case insensitive)
+                      // Look for lines with ##[error] or ERROR
                       const lines = output.split('\n');
                       for (const line of lines) {
-                          if (line.match(/ERROR/i) || line.match(/Error:/)) {
-                              // Clean up the line - remove ANSI codes, leading symbols, etc
+                          if (line.includes('##[error]') || line.match(/ERROR/i)) {
                               errorMsg = line
+                                  .replace(/##\[error\]/i, '')     // Remove ##[error]
                                   .replace(/\x1b\[[0-9;]*m/g, '') // Remove ANSI codes
-                                  .replace(/^.*?ERROR\s*/i, '')    // Remove everything up to and including ERROR
-                                  .replace(/^.*?Error:\s*/i, '')   // Remove everything up to and including Error:
+                                  .replace(/^.*?ERROR\s*/i, '')    // Remove ERROR prefix
                                   .trim();
                               if (errorMsg) break;
                           }
