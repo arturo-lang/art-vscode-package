@@ -1,0 +1,19 @@
+{
+    "All?": { "prefix": "all?", "body": [ "all? ${1:container}" ] },
+    "Any?": { "prefix": "any?", "body": [ "any? ${1:container}" ] },
+
+    "And?": { "prefix": "and?", "body": [ "and? $1 $2" ] },
+    "Or?": { "prefix": "or?", "body": [ "or? $1 $2" ] },
+    "Not?": { "prefix": "not?", "body": [ "not? $1" ] },
+    "Nand?": { "prefix": "nand?", "body": [ "nand? $1 $2" ] },
+    "Nor?": { "prefix": "nor?", "body": [ "nor? $1 $2" ] },
+    "Xor?": { "prefix": "xor?", "body": [ "xor? $1 $2" ] },
+    "Xnor?": { "prefix": "xnor?", "body": [ "xnor? $1 $2" ] },
+
+    "False?": { "prefix": "false", "body": [ "false? $1" ] },
+    "True?": { "prefix": "true", "body": [ "true? $1" ] },
+
+    "True": { "prefix": "true", "body": [ "true" ] },
+    "False": { "prefix": "false", "body": [ "false" ] },
+    "Maybe": { "prefix": "maybe", "body": [ "maybe" ] }
+}

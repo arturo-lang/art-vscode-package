@@ -1,0 +1,13 @@
+{
+    "Add": { "prefix": "add", "body": [ "$1 + $2" ] },
+    "Sub": { "prefix": "sub", "body": [ "$1 - $2" ] },
+    "Mul": { "prefix": "mul", "body": [ "$1 * $2" ] },
+    "Div": { "prefix": "div", "body": [ "$1 / $2" ] },
+    "Mod": { "prefix": "mod", "body": [ "$1 % $2" ] },
+    "Pow": { "prefix": "pow", "body": [ "$1 ^ $2" ] },
+    "Float Div": { "prefix": "fdiv", "body": [ "$1 // $2" ] },
+    "Div Mod": { "prefix": "divmod", "body": [ "$1 /% $2" ] },
+    "Negative": { "prefix": "neg", "body": [ "neg $1" ] },
+    "Increment": { "prefix": "inc", "body": [ "inc $1" ] },
+    "Decrement": { "prefix": "dec", "body": [ "dec $1" ] }
+}

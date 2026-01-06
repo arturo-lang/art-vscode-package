@@ -1,0 +1,177 @@
+{
+
+    "Function": {
+        "prefix": "function",
+        "body": [
+            "${1:name}: $[${2:args}][",
+            "    ;; description: « ${3: description}",
+            "    ;; options: []",
+            "    ;; returns: :${4:type}",
+            "    ;; example: {}",
+            "",
+            "    $5",
+            "]"
+        ]
+    },
+
+    "Return": {
+        "prefix": "return",
+        "body": ["return ${1:value}"]
+    },
+
+    "Alias symbol": {
+        "prefix": "alias",
+        "body": ["alias '${1:symbol} '${2:function}!"],
+        "description": "Assign symbol to given function"
+    },
+
+    "Call function": {
+        "prefix": "call",
+        "body": ["call '${1:function} [${2:args}]"],
+        "description": "Call a function with arguments"
+    },
+
+    "Set": {
+        "prefix": ["set", ":"],
+        "body": ["${1:variable}: ${2:value}"],
+        "description": "Assign value to a variable"
+    },
+
+
+
+    "Case": {
+        "prefix": "case",
+        "body": [
+            "case ${1:expression} [",
+            "    ${2:pattern} -> ${3:result}",
+            "    ${4:any} -> ${5:fallback}",
+            "]"
+        ],
+        "description": "Match given argument against different values and execute corresponding block."
+    },
+
+    "When": {
+        "prefix": "when",
+        "body": [
+            "when [",
+            "    ${1:condition} -> ${2:action}",
+            "    true -> ${3:fallback}",
+            "]"
+        ],
+        "description": "Check conditions one by one and execute corresponding block accordingly."
+    },
+
+    "When Any": {
+        "prefix": "when.any",
+        "body": [
+            "when.any [",
+            "    ${1:condition} -> ${2:action}",
+            "    true -> ${3:fallback}",
+            "]"
+        ],
+        "description": "Check all conditions, without breaking, regardless of success."
+    },
+
+    "When Has": {
+        "prefix": "when.has",
+        "body": [
+            "when.has: ${1:value} [",
+            "    [${2:condition}] -> ${3:action}",
+            "    true -> ${4:fallback}",
+            "]"
+        ],
+        "description": "Check all conditions, without breaking, regardless of success."
+    },
+
+    "If": {
+        "prefix": "if",
+        "body": [
+            "if ${1:condition} [",
+            "    ${2:action}",
+            "]"
+        ]
+    },
+
+    "If (Short)": {
+        "prefix": "if",
+        "body": ["if ${1:condition} -> ${2:action}"]
+    },
+
+    "Unless": {
+        "prefix": "unless",
+        "body": [
+            "unless ${1:condition} [",
+            "    ${2:action}",
+            "]"
+        ]
+    },
+
+    "Unless (Short)": {
+        "prefix": "unless",
+        "body": ["unless ${1:condition} -> ${2:action}"]
+    },
+
+    "Switch": {
+        "prefix": "switch",
+        "body": [
+            "(${1:expression})? [",
+            "    ${2:ifTrue}",
+            "    ][",
+            "    ${3:ifFalse}",
+            "]"
+        ],
+        "description": "If condition is not false or null perform given action, otherwise perform alternative action."
+    },
+ 
+    "Switch (Short)": {
+        "prefix": "switch",
+        "body": [
+            "(${1:expression})?",
+            "    -> ${2:ifTrue}",
+            "    -> ${3:ifFalse}"
+        ],
+        "description": "If condition is not false or null perform given action, otherwise perform alternative action."
+    },
+
+    "Coalesce operator": {
+        "prefix": ["coalesce", "otherwise", "??"],
+        "body": ["${1:expr1} ?? ${2:expr2}"],
+        "description": "If first value is null or false, return second value; otherwise return the first one."
+    },
+
+
+    "Duplicate": {
+        "prefix": "dup",
+        "body": ["<= ${1:value}"],
+        "description": "Duplicate the top of the stack and convert non-returning call to a do-return call."
+    },
+
+    "Ensure": {
+        "prefix": "ensure",
+        "body": ["ensure.that: \"${1:message}\" -> ${1:expression}"],
+        "description": "Assert given condition is true, or exit."
+    },
+
+    "While": {
+        "prefix": "while",
+        "body": [
+            "while ${1:condition} [",
+            "    ${2:action}",
+            "]"
+        ]
+    },
+
+    "Until": {
+        "prefix": "until",
+        "body": [
+            "until ${1:condition} [",
+            "    ${2:action}",
+            "]"
+        ]
+    },
+
+    "Break": { "prefix": "break", "body": ["break"] },
+    "Continue": { "prefix": "continue", "body": ["continue"] },
+    "Any": { "prefix": "any", "body": ["any"] },
+    "Null": { "prefix": "null", "body": ["null"] }
+}

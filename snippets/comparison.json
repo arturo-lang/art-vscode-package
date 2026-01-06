@@ -1,0 +1,10 @@
+{
+    "Between?": { "prefix": "between?", "body": [ "$1 <==> $2 $3" ] },
+    "Equal?": { "prefix": "equal?", "body": [ "$1 = $2" ] },
+    "Greater?": { "prefix": "greater?", "body": [ "$1 > $2" ] },
+    "Less?": { "prefix": "less?", "body": [ "$1 < $2" ] },
+    "Greater Equal?": { "prefix": "greaterEqual?", "body": [ "$1 >= $2" ] },
+    "Less Equal?": { "prefix": "lessEqual?", "body": [ "$1 <= $2" ] },
+    "Not Equal?": { "prefix": "notEqual?", "body": [ "$1 <> $2" ] },
+    "Same?": { "prefix": "same?", "body": [ "same? $1 $2" ] }
+}

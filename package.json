@@ -2,11 +2,11 @@
     "name": "arturo",
     "displayName": "Arturo",
     "description": "Syntax highlighting for the Arturo programming language",
-    "version": "0.5.1",
+    "version": "0.6.0",
     "publisher": "drkameleon",
     "repository": "https://github.com/arturo-lang/art-vscode-package",
-    "icon": "images/grayLogo.png",
     "main": "./build/main.js",
+    "icon": "icons/gray.png",
     "engines": {
         "vscode": "^1.52.0"
     },
@@ -38,6 +38,25 @@
             "language": "art",
             "scopeName": "source.arturo",
             "path": "./syntaxes/art.tmLanguage.json"
+        }],
+        "snippets": [
+            { "language": "art", "path": "./snippets/arithmetic.json" },
+            { "language": "art", "path": "./snippets/bitwise.json" },
+            { "language": "art", "path": "./snippets/collection.json" },
+            { "language": "art", "path": "./snippets/comparison.json" },
+            { "language": "art", "path": "./snippets/core.json" },
+            { "language": "art", "path": "./snippets/exceptions.json" },
+            { "language": "art", "path": "./snippets/io.json" },
+            { "language": "art", "path": "./snippets/iterators.json" },
+            { "language": "art", "path": "./snippets/logic.json" },
+            { "language": "art", "path": "./snippets/numbers.json" },
+            { "language": "art", "path": "./snippets/strings.json" },
+            { "language": "art", "path": "./snippets/types.json" }
+        ],
+        "iconThemes": [{
+            "id": "art",
+            "label": "Arturo Icons",
+            "path": "icons/config.json"
         }]
     }
 }
