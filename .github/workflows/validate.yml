@@ -45,17 +45,16 @@ jobs:
                       const fs = require('fs');
                       const output = fs.readFileSync('vsce_output.log', 'utf8');
                       
-                      let errorMsg = 'Unknown error occurred';
+                      let errorMsg = 'Unknown error';
                       
-                      // Look for lines with ##[error] or ERROR
                       const lines = output.split('\n');
                       for (const line of lines) {
                           if (line.includes('##[error]') || line.match(/ERROR/i)) {
                               errorMsg = line
-                                  .replace(/##\[error\]/i, '')     // Remove ##[error]
-                                  .replace(/\x1b\[[0-9;]*m/g, '') // Remove ANSI codes
-                                  .replace(/^.*?ERROR\s*/i, '')    // Remove ERROR prefix
-                                  .replace(/^:+\s*/, '')           // Remove leading colons and spaces
+                                  .replace(/##\[error\]/i, '')
+                                  .replace(/\x1b\[[0-9;]*m/g, '')
+                                  .replace(/^.*?ERROR\s*/i, '')
+                                  .replace(/^:+\s*/, '')
                                   .trim();
                               if (errorMsg) break;
                           }
