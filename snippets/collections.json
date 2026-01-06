@@ -9,6 +9,7 @@
 
     "Contains?": { "prefix": "contains?", "body": [ "contains? ${1:collection} ${2:element}" ] },
     "In?": { "prefix": "in?", "body": [ "in? ${1:element} ${2:collection}" ] },
+    "In? (Infix)": { "prefix": "in?", "body": [ "${1:element} ∈ ${2:collection}" ] },
 
     "Couple": { "prefix": "couple", "body": [ "couple $1 $2" ] },
     "Decouple": { "prefix": "decouple", "body": [ "decouple $1" ] },
