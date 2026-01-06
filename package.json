@@ -2,10 +2,10 @@
     "name": "arturo",
     "displayName": "Arturo",
     "description": "Syntax highlighting for the Arturo programming language",
-    "version": "0.5.1",
+    "version": "0.6.0",
     "publisher": "drkameleon",
     "repository": "https://github.com/arturo-lang/art-vscode-package",
-    "icon": "images/grayLogo.png",
+    "icon": "icon/gray.png",
     "engines": {
         "vscode": "^1.52.0"
     },
@@ -37,6 +37,11 @@
             { "language": "art", "path": "./snippets/numbers.json" },
             { "language": "art", "path": "./snippets/strings.json" },
             { "language": "art", "path": "./snippets/types.json" }
-        ]
+        ],
+        "iconThemes": [{
+            "id": "art",
+            "label": "Arturo Icons",
+            "path": "icons/config.json"
+        }]
     }
 }
