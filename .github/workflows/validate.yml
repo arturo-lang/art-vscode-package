@@ -56,9 +56,9 @@ jobs:
                           if (line.includes('##[error]') || line.match(/ERROR/i)) {
                               errorMsg = line
                                   .replace(/##\[error\]/i, '')     // Remove ##[error]
-                                  .replace(/^:+/, '')              // Remove leading colons
                                   .replace(/\x1b\[[0-9;]*m/g, '') // Remove ANSI codes
                                   .replace(/^.*?ERROR\s*/i, '')    // Remove ERROR prefix
+                                  .replace(/^:+\s*/, '')           // Remove leading colons and spaces
                                   .trim();
                               if (errorMsg) break;
                           }
