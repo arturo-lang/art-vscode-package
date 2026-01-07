@@ -1,38 +1,108 @@
 {
-  "name": "arturo",
-  "displayName": "Arturo",
-  "description": "Syntax highlighting for the Arturo programming language",
-  "version": "0.6.3",
-  "publisher": "drkameleon",
-  "repository": "https://github.com/arturo-lang/vscode-extension",
-  "icon": "icons/gray.png",
-  "engines": { "vscode": "^1.52.0" },
-  "categories": ["Programming Languages"],
-  "contributes": {
-    "languages": [{
-      "id": "art",
-      "aliases": ["Arturo", "art"],
-      "extensions": [".art"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "art",
-      "scopeName": "source.arturo",
-      "path": "./syntaxes/art.tmLanguage.json"
-    }],
-    "snippets": [
-      { "language": "art", "path": "./snippets/arithmetic.json" },
-      { "language": "art", "path": "./snippets/bitwise.json" },
-      { "language": "art", "path": "./snippets/collection.json" },
-      { "language": "art", "path": "./snippets/comparison.json" },
-      { "language": "art", "path": "./snippets/core.json" },
-      { "language": "art", "path": "./snippets/exceptions.json" },
-      { "language": "art", "path": "./snippets/io.json" },
-      { "language": "art", "path": "./snippets/iterators.json" },
-      { "language": "art", "path": "./snippets/logic.json" },
-      { "language": "art", "path": "./snippets/numbers.json" },
-      { "language": "art", "path": "./snippets/strings.json" },
-      { "language": "art", "path": "./snippets/types.json" }
-    ]
-  }
+    "name": "arturo",
+    "displayName": "Arturo",
+    "description": "Syntax highlighting for the Arturo programming language",
+    "version": "0.6.3",
+    "publisher": "drkameleon",
+    "repository": "https://github.com/arturo-lang/vscode-extension",
+    "icon": "icons/gray.png",
+    "engines": {
+        "vscode": "^1.52.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "arturo.hello-world",
+                "title": "Arturo: Hello World"
+            }
+        ],
+        "languages": [
+            {
+                "id": "art",
+                "aliases": [
+                    "Arturo",
+                    "art"
+                ],
+                "extensions": [
+                    ".art"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "art",
+                "scopeName": "source.arturo",
+                "path": "./syntaxes/art.tmLanguage.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "art",
+                "path": "./snippets/arithmetic.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/bitwise.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/collections.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/comparison.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/core.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/exceptions.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/io.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/iterators.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/logic.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/numbers.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/strings.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/types.json"
+            }
+        ]
+    },
+    "activationEvents": [
+        "onCommand:arturo.hello-world"
+    ],
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./"
+    },
+    "devDependencies": {
+        "@types/node": "^20.11.30",
+        "@types/vscode": "^1.51.0",
+        "tslint": "^5.16.0",
+        "typescript": "^5.9.3"
+    }
 }
