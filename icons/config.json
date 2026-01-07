@@ -1,0 +1,24 @@
+{
+    "iconDefinitions": {
+        "default": { "iconPath": "./gray.png" },
+        "special": { "iconPath": "./purple.png"},
+        "contrast": { "iconPath": "./purple.png" }
+    },
+
+    "fileExtensions": {
+        "art": "default",
+        "test.art": "special",
+        "spec.art": "special"
+    },
+    "languageIds": { "art": "default" },
+    "fileNames": {
+        "info.art": "special",
+        "config.art": "special"
+    },
+
+    "highContrast": {
+        "fileExtensions": { "art": "contrast" },
+        "languageIds": { "art": "contrast" }
+    }
+
+}

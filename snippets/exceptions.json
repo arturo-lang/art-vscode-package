@@ -1,0 +1,63 @@
+{
+    "If throws?": {
+        "prefix": "ifthrows",
+        "body": [
+            "if throws? -> ${1:code} [",
+            "    ${2:handle}",
+            "]"
+        ],
+        "description": "Execute code if it throws an exception."
+    },
+
+    "If try": {
+        "prefix": ["onerror", "iferror", "iftry"],
+        "body": [
+            "if error? ${1:error}: <= try [",
+            "    ${2:code}",
+            "][",
+            "    ${3:handle}",
+            "]"
+        ],
+        "description": "Execute code and handle error if it occurs."
+    },
+
+    "Handle exception": {
+        "prefix": ["handle", "catch"],
+        "body": [
+            "(error? err: <= try [${1:code}])? [",
+            "    ${2:onError}",
+            "][",
+            "    ${3:onSuccess}",
+            "]"
+        ],
+        "description": "Handle exception from code execution."
+    },
+
+    "Throw": {
+        "prefix": "throw",
+        "body": [ "throw ${1:exception}" ]
+    },
+
+    "Throws?": {
+        "prefix": "throws?",
+        "body": [ "throws? -> ${1:exception}" ]
+    },
+
+    "Try": {
+        "prefix": "try",
+        "body": [
+            "${1:variable}: try [",
+            "    ${2:code}",
+            "]"
+        ]
+    },
+
+    "Try (discard)": {
+        "prefix": "trydiscard",
+        "body": [
+            "discard try [",
+            "    ${1:code}",
+            "]"
+        ]
+    }
+}

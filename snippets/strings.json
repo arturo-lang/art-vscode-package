@@ -1,0 +1,53 @@
+{
+    "String Multiline": {
+        "prefix": "multiline",
+        "body": [
+            "{",
+            "    $1",
+            "}"
+        ]
+    },
+
+    "String Verbatim": {
+        "prefix": "verbatim",
+        "body": [
+            "{:",
+            "    $1",
+            ":}"
+        ]
+    },
+
+    "String (Smart / Short)": { "prefix": "smartquote", "body": [ "« $1" ] },
+
+    "Haredoc String": {
+        "prefix": "haredoc",
+        "body": [
+            "---",
+            "$1",
+            "---"
+        ]
+    },
+
+    "Render": { "prefix": "render", "body": [ "~$1" ]},
+    "Upper": { "prefix": "upper", "body": [ "upper $1" ]},
+    "Lower": { "prefix": "lower", "body": [ "lower $1" ]},
+    "Capitalize": { "prefix": "capitalize", "body": [ "capitalize $1" ]},
+
+    "Strip": { "prefix": "strip", "body": [ "strip $1" ]},
+    "Strip Start": { "prefix": "strip.start", "body": [ "strip.start $1" ] },
+    "Strip End": { "prefix": "strip.end", "body": [ "strip.end $1" ] },
+    "Trim": { "prefix": "trim", "body": [ "trim $1" ] },
+
+    "Match": { "prefix": "match", "body": [ "match ${1:string} {/${2:regex}/}" ] },
+    "Match Capture": { "prefix": "match.capture", "body": [ "match.capture ${1:string} {/${2:regex}/}" ] },
+    "Replace": { "prefix": "replace", "body": [ "replace ${1:string} ${2:what} ${3:with}" ] },
+    "Pad": { "prefix": "pad", "body": [ "pad ${1:string} ${2:length}" ] },
+    "Pad (with)": { "prefix": "pad.with", "body": [ "pad.with: ${3:char} ${1:string} ${2:length}" ] },
+    "Truncate": { "prefix": "truncate", "body": [ "truncate ${1:string} ${2:length}" ] },
+    "Truncate (with)": { "prefix": "truncate.with", "body": [ "truncate.with: ${3:char} ${1:string} ${2:length}" ] },
+    "Join": { "prefix": "join", "body": [ "join ${1:container}" ] },
+    "Join (with)": { "prefix": "join.with", "body": [ "join.with: \"$2\" ${1:container}" ] },
+    "Join (lines)": { "prefix": "join.lines", "body": [ "join.lines ${1:container}" ] },
+    "Join (words)": { "prefix": "join.words", "body": [ "join.words ${1:container}" ] },
+    "Join (path)": { "prefix": "join.path", "body": [ "join.path ${1:container}" ] }
+}
