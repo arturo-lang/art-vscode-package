@@ -1,62 +1,38 @@
 {
-    "name": "arturo",
-    "displayName": "Arturo",
-    "description": "Syntax highlighting for the Arturo programming language",
-    "version": "0.6.0",
-    "publisher": "drkameleon",
-    "repository": "https://github.com/arturo-lang/art-vscode-package",
-    "main": "./build/main.js",
-    "icon": "icons/gray.png",
-    "engines": {
-        "vscode": "^1.52.0"
-    },
-    "categories": [
-        "Programming Languages"
-    ],
-    "activationEvents": [ "onLanguage:art" ],
-    "contributes": {
-        "commands": [
-            { "command": "arturo.runtime.run", "title": "Arturo: Run File" },
-            { "command": "arturo.runtime.repl", "title": "Arturo: Open REPL" },
-            { "command": "arturo.runtime.bundle", "title": "Arturo: Bundle file as executable" },
-            { "command": "arturo.package.install", "title": "Arturo: Install Package" },
-            { "command": "arturo.package.uninstall", "title": "Arturo: Uninstall Package" },
-            { "command": "arturo.package.remote", "title": "Arturo: List Remote Packages" },
-            { "command": "arturo.package.list", "title": "Arturo: List Installed Packages" },
-            { "command": "arturo.package.update", "title": "Arturo: Update Installed Packages" },
-            { "command": "arturo.package.docs", "title": "Arturo: Open Package Docs" },
-            { "command": "arturo.meta.report", "title": "Arturo: Report Issue" },
-            { "command": "arturo.meta.docs", "title": "Arturo: Open Docs" }
-        ],
-        "languages": [{
-            "id": "art",
-            "aliases": ["Arturo", "art"],
-            "extensions": [".art"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "art",
-            "scopeName": "source.arturo",
-            "path": "./syntaxes/art.tmLanguage.json"
-        }],
-        "snippets": [
-            { "language": "art", "path": "./snippets/arithmetic.json" },
-            { "language": "art", "path": "./snippets/bitwise.json" },
-            { "language": "art", "path": "./snippets/collection.json" },
-            { "language": "art", "path": "./snippets/comparison.json" },
-            { "language": "art", "path": "./snippets/core.json" },
-            { "language": "art", "path": "./snippets/exceptions.json" },
-            { "language": "art", "path": "./snippets/io.json" },
-            { "language": "art", "path": "./snippets/iterators.json" },
-            { "language": "art", "path": "./snippets/logic.json" },
-            { "language": "art", "path": "./snippets/numbers.json" },
-            { "language": "art", "path": "./snippets/strings.json" },
-            { "language": "art", "path": "./snippets/types.json" }
-        ],
-        "iconThemes": [{
-            "id": "art",
-            "label": "Arturo Icons",
-            "path": "icons/config.json"
-        }]
-    }
+  "name": "arturo",
+  "displayName": "Arturo",
+  "description": "Syntax highlighting for the Arturo programming language",
+  "version": "0.6.3",
+  "publisher": "drkameleon",
+  "repository": "https://github.com/arturo-lang/vscode-extension",
+  "icon": "icons/gray.png",
+  "engines": { "vscode": "^1.52.0" },
+  "categories": ["Programming Languages"],
+  "contributes": {
+    "languages": [{
+      "id": "art",
+      "aliases": ["Arturo", "art"],
+      "extensions": [".art"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "art",
+      "scopeName": "source.arturo",
+      "path": "./syntaxes/art.tmLanguage.json"
+    }],
+    "snippets": [
+      { "language": "art", "path": "./snippets/arithmetic.json" },
+      { "language": "art", "path": "./snippets/bitwise.json" },
+      { "language": "art", "path": "./snippets/collection.json" },
+      { "language": "art", "path": "./snippets/comparison.json" },
+      { "language": "art", "path": "./snippets/core.json" },
+      { "language": "art", "path": "./snippets/exceptions.json" },
+      { "language": "art", "path": "./snippets/io.json" },
+      { "language": "art", "path": "./snippets/iterators.json" },
+      { "language": "art", "path": "./snippets/logic.json" },
+      { "language": "art", "path": "./snippets/numbers.json" },
+      { "language": "art", "path": "./snippets/strings.json" },
+      { "language": "art", "path": "./snippets/types.json" }
+    ]
+  }
 }
