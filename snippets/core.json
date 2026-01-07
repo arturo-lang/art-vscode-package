@@ -148,7 +148,7 @@
 
     "Ensure": {
         "prefix": "ensure",
-        "body": ["ensure.that: \"${1:message}\" -> ${1:expression}"],
+        "body": ["ensure.that: \"${2:message}\" -> ${1:expression}"],
         "description": "Assert given condition is true, or exit."
     },
 
