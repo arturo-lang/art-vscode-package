@@ -79,7 +79,43 @@
         "extensions": [
           ".art"
         ],
-        "configuration": "./language-configuration.json"
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/gray.png",
+          "dark": "./icons/gray.png"        
+        }
+      },
+      {
+        "id": "art-test",
+        "aliases": [
+          "Unitt Arturo Tests",
+          "art-test"
+        ],
+        "extensions": [
+          ".test.art",
+          ".spec.art"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/purple.png",
+          "dark": "./icons/purple.png"        
+        }
+      },
+      {
+        "id": "art-config",
+        "aliases": [
+          "Arturo Config",
+          "art-config"
+        ],
+        "filenames": [
+          "info.art",
+          "config.art"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/purple.png",
+          "dark": "./icons/purple.png"        
+        }
       }
     ],
     "grammars": [
