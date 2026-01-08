@@ -68,7 +68,7 @@ export const reportIssue = async () => {
 }
 
 export const openDocs = () => {
-    const url = 'https://arturo-lang.io/master/documentation'
+    const url = 'https://arturo-lang.io/latest/documentation/library'
 
     try {
         const panel = vscode.window.createWebviewPanel(
