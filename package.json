@@ -30,6 +30,10 @@
             {
                 "command": "arturo.runtime.bundle",
                 "title": "Arturo: Bundle File"
+            },
+            {
+                "command": "arturo.meta.report-issue",
+                "title": "Arturo: Report Issue"
             }
         ],
         "languages": [
