@@ -9,6 +9,19 @@
     "engines": {
         "vscode": "^1.52.0"
     },
+    "activationEvents": [
+        "onLanguage:art",
+        "onCommand:arturo.runtime.repl",
+        "onCommand:arturo.runtime.run",
+        "onCommand:arturo.runtime.bundle",
+        "onCommand:arturo.meta.report-issue",
+        "onCommand:arturo.meta.open-docs",
+        "onCommand:arturo.package.install",
+        "onCommand:arturo.package.uninstall",
+        "onCommand:arturo.package.list",
+        "onCommand:arturo.package.remote",
+        "onCommand:arturo.package.update"
+    ],
     "categories": [
         "Programming Languages"
     ],
