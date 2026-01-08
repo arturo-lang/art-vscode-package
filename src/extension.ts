@@ -2,7 +2,7 @@ import { command, Context } from "./helper"
 
 import { helloWorld } from "./commands/hello"
 import { bundleFile, openRepl, runFile } from "./commands/runtime"
-import { reportIssue } from "./commands/meta"
+import { openDocs, reportIssue } from "./commands/meta"
 
 export const activate = (context: Context) => {
     command(context, "arturo.hello-world", helloWorld)
@@ -11,6 +11,8 @@ export const activate = (context: Context) => {
     command(context, "arturo.runtime.bundle", bundleFile)
 
     command(context, "arturo.meta.report-issue", reportIssue)
+    command(context, "arturo.meta.open-docs", openDocs)
+    
 }
 
 export const deactivate = () => {}

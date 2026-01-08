@@ -34,6 +34,10 @@
             {
                 "command": "arturo.meta.report-issue",
                 "title": "Arturo: Report Issue"
+            },
+            {
+                "command": "arturo.meta.open-docs",
+                "title": "Arturo: Open Documentation"
             }
         ],
         "languages": [
