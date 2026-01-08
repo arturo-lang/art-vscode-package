@@ -13,6 +13,7 @@
     "onLanguage:art",
     "onCommand:arturo.runtime.repl",
     "onCommand:arturo.runtime.run",
+    "onCommand:arturo.runtime.run-current",
     "onCommand:arturo.runtime.bundle",
     "onCommand:arturo.meta.report-issue",
     "onCommand:arturo.meta.open-docs",
@@ -35,6 +36,11 @@
       {
         "command": "arturo.runtime.run",
         "title": "Arturo: Run File"
+      },
+      {
+        "command": "arturo.runtime.run-current",
+        "title": "Arturo: Run Current File",
+        "icon": "$(play)"
       },
       {
         "command": "arturo.runtime.bundle",
@@ -69,6 +75,15 @@
         "title": "Arturo: Update All Packages"
       }
     ],
+    "menus": {
+      "editor/title/run": [
+        {
+          "command": "arturo.runtime.run-current",
+          "group": "navigation@0",
+          "when": "resourceLangId == art && !isInDiffEditor && !virtualWorkspace"
+        }
+      ]
+    },
     "languages": [
       {
         "id": "art",
