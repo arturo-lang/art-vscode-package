@@ -14,6 +14,20 @@ export const runFile = async () => {
 
 	arturo('Run', `"${file}"`)
 }
-	terminal.show(true)
-	terminal.sendText(`arturo "${file}"`)
+
+export const bundleFile = async () => {
+	const file = await selectScript()
+    if (!file) return
+
+    const asName = await vscode.window.showInputBox({
+        prompt: 'Enter the bundle name',
+        placeHolder: 'output.exe'
+    })
+
+    if (asName) {
+        arturo('Bundle', `--bundle --as:"${asName}" "${file}"`)
+    } else {
+        arturo('Bundle', `--bundle "${file}"`)
+    }
+
 }

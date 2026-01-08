@@ -26,6 +26,10 @@
             {
                 "command": "arturo.runtime.run",
                 "title": "Arturo: Run File"
+            },
+            {
+                "command": "arturo.runtime.bundle",
+                "title": "Arturo: Bundle File"
             }
         ],
         "languages": [
