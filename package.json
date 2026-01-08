@@ -1,87 +1,154 @@
 {
-  "name": "arturo",
-  "displayName": "Arturo",
-  "description": "Syntax highlighting for the Arturo programming language",
-  "version": "0.6.3",
-  "publisher": "drkameleon",
-  "repository": "https://github.com/arturo-lang/vscode-extension",
-  "icon": "icons/gray.png",
-  "engines": {
-    "vscode": "^1.52.0"
-  },
-  "categories": [
-    "Programming Languages"
-  ],
-  "contributes": {
-    "languages": [
-      {
-        "id": "art",
-        "aliases": [
-          "Arturo",
-          "art"
-        ],
-        "extensions": [
-          ".art"
-        ],
-        "configuration": "./language-configuration.json"
-      }
+    "name": "arturo",
+    "displayName": "Arturo",
+    "description": "Syntax highlighting for the Arturo programming language",
+    "version": "0.6.3",
+    "publisher": "drkameleon",
+    "repository": "https://github.com/arturo-lang/vscode-extension",
+    "icon": "icons/gray.png",
+    "engines": {
+        "vscode": "^1.52.0"
+    },
+    "activationEvents": [
+        "onLanguage:art",
+        "onCommand:arturo.runtime.repl",
+        "onCommand:arturo.runtime.run",
+        "onCommand:arturo.runtime.bundle",
+        "onCommand:arturo.meta.report-issue",
+        "onCommand:arturo.meta.open-docs",
+        "onCommand:arturo.package.install",
+        "onCommand:arturo.package.uninstall",
+        "onCommand:arturo.package.list",
+        "onCommand:arturo.package.remote",
+        "onCommand:arturo.package.update"
     ],
-    "grammars": [
-      {
-        "language": "art",
-        "scopeName": "source.arturo",
-        "path": "./syntaxes/art.tmLanguage.json"
-      }
+    "categories": [
+        "Programming Languages"
     ],
-    "snippets": [
-      {
-        "language": "art",
-        "path": "./snippets/arithmetic.json"
-      },
-      {
-        "language": "art",
-        "path": "./snippets/bitwise.json"
-      },
-      {
-        "language": "art",
-        "path": "./snippets/collection.json"
-      },
-      {
-        "language": "art",
-        "path": "./snippets/comparison.json"
-      },
-      {
-        "language": "art",
-        "path": "./snippets/core.json"
-      },
-      {
-        "language": "art",
-        "path": "./snippets/exceptions.json"
-      },
-      {
-        "language": "art",
-        "path": "./snippets/io.json"
-      },
-      {
-        "language": "art",
-        "path": "./snippets/iterators.json"
-      },
-      {
-        "language": "art",
-        "path": "./snippets/logic.json"
-      },
-      {
-        "language": "art",
-        "path": "./snippets/numbers.json"
-      },
-      {
-        "language": "art",
-        "path": "./snippets/strings.json"
-      },
-      {
-        "language": "art",
-        "path": "./snippets/types.json"
-      }
-    ]
-  }
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "arturo.runtime.repl",
+                "title": "Arturo: Open REPL"
+            },
+            {
+                "command": "arturo.runtime.run",
+                "title": "Arturo: Run File"
+            },
+            {
+                "command": "arturo.runtime.bundle",
+                "title": "Arturo: Bundle File"
+            },
+            {
+                "command": "arturo.meta.report-issue",
+                "title": "Arturo: Report Issue"
+            },
+            {
+                "command": "arturo.meta.open-docs",
+                "title": "Arturo: Open Documentation"
+            },
+            {
+                "command": "arturo.package.install",
+                "title": "Arturo: Install Package"
+            },
+            {
+                "command": "arturo.package.uninstall",
+                "title": "Arturo: Uninstall Package"
+            },
+            {
+                "command": "arturo.package.list",
+                "title": "Arturo: List Installed Packages"
+            },
+            {
+                "command": "arturo.package.remote",
+                "title": "Arturo: List Registered Packages"
+            },
+            {
+                "command": "arturo.package.update",
+                "title": "Arturo: Update All Packages"
+            }
+        ],
+        "languages": [
+            {
+                "id": "art",
+                "aliases": [
+                    "Arturo",
+                    "art"
+                ],
+                "extensions": [
+                    ".art"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "art",
+                "scopeName": "source.arturo",
+                "path": "./syntaxes/art.tmLanguage.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "art",
+                "path": "./snippets/arithmetic.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/bitwise.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/collections.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/comparison.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/core.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/exceptions.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/io.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/iterators.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/logic.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/numbers.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/strings.json"
+            },
+            {
+                "language": "art",
+                "path": "./snippets/types.json"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./"
+    },
+    "devDependencies": {
+        "@types/node": "^20.11.30",
+        "@types/vscode": "^1.51.0",
+        "tslint": "^5.16.0",
+        "typescript": "^5.9.3"
+    }
 }
