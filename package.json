@@ -38,6 +38,26 @@
             {
                 "command": "arturo.meta.open-docs",
                 "title": "Arturo: Open Documentation"
+            },
+            {
+                "command": "arturo.package.install",
+                "title": "Arturo: Install Package"
+            },
+            {
+                "command": "arturo.package.uninstall",
+                "title": "Arturo: Uninstall Package"
+            },
+            {
+                "command": "arturo.package.list",
+                "title": "Arturo: List Installed Packages"
+            },
+            {
+                "command": "arturo.package.remote",
+                "title": "Arturo: List Registered Packages"
+            },
+            {
+                "command": "arturo.package.update",
+                "title": "Arturo: Update All Packages"
             }
         ],
         "languages": [

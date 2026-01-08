@@ -22,3 +22,10 @@ export const selectScript = async (): Promise<string | null> => {
         return (pick as any).uri.fsPath as string
     }
 }
+
+export const ask = async (prompt: string): Promise<string | null> => {
+    const input = await vscode.window.showInputBox({
+        prompt
+    })
+    return (input === undefined) ? null : input
+}
