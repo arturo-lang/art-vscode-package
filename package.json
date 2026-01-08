@@ -18,6 +18,14 @@
             {
                 "command": "arturo.hello-world",
                 "title": "Arturo: Hello World"
+            },
+            {
+                "command": "arturo.runtime.repl",
+                "title": "Arturo: Open REPL"
+            },
+            {
+                "command": "arturo.runtime.run",
+                "title": "Arturo: Run File"
             }
         ],
         "languages": [
