@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-    <img alt="GitHub License" src="https://img.shields.io/github/license/arturo-lang/vscode-extension?style=flat-square"><img alt="Visual Studio Marketplace Downloads" src="https://img.shields.io/visual-studio-marketplace/d/drkameleon.arturo?style=flat-square&label=Downloads%20on%20VS%20Code&labelColor=blue&color=black&cacheSeconds=30&link=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Ddrkameleon.arturo">
+    <img alt="GitHub License" src="https://img.shields.io/github/license/arturo-lang/vscode-extension?style=flat-square"> <img alt="Visual Studio Marketplace Downloads" src="https://img.shields.io/visual-studio-marketplace/d/drkameleon.arturo?style=flat-square&label=Downloads%20on%20VS%20Code&labelColor=blue&color=black&cacheSeconds=30&link=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Ddrkameleon.arturo">
 </p>
 
 ## Requirements
