@@ -110,7 +110,7 @@
           ".test.art",
           ".spec.art"
         ],
-        "configuration": "./language-configuration.json",
+        "configuration": "./grammar/config.json",
         "icon": {
           "light": "./icons/purple.png",
           "dark": "./icons/purple.png"
@@ -126,7 +126,7 @@
           "info.art",
           "config.art"
         ],
-        "configuration": "./language-configuration.json",
+        "configuration": "./grammar/config.json",
         "icon": {
           "light": "./icons/purple.png",
           "dark": "./icons/purple.png"
