@@ -17,6 +17,30 @@ export const runFile = async () => {
     await runWithDiagnostics(file)
 }
 
+export const runCurrentFile = async () => {
+    const editor = vscode.window.activeTextEditor
+
+    if (!editor) {
+        vscode.window.showWarningMessage('No active editor to run.')
+        return
+    }
+
+    const doc = editor.document
+    if (doc.languageId !== 'art' && !doc.fileName.toLowerCase().endsWith('.art')) {
+        vscode.window.showWarningMessage('Open an Arturo file to run it.')
+        return
+    }
+
+    if (doc.isUntitled) {
+        vscode.window.showWarningMessage('Save the Arturo file before running it.')
+        return
+    }
+
+    if (doc.isDirty) await doc.save()
+
+    arturo('Run', `"${doc.fileName}"`)
+}
+
 export const bundleFile = async () => {
     const file = await selectScript()
     if (!file) return
