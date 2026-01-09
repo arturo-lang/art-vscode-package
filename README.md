@@ -6,6 +6,8 @@
 <i>Official Arturo Programming Language Extension for Visual Studio Code.</i>
 <br>
 <br><br>
+<b>~ CODE IS ART ~</b>
+<br>
 <img 
     alt="Arturo logo" 
     width="20" 
@@ -16,11 +18,9 @@
     width="20" 
     src="https://github.com/arturo-lang/arturo/raw/master/docs/images/logo-lightgray.png#gh-dark-mode-only" 
 />
-<br>
-<b>~ CODE IS ART ~</b>
 </p>
 
-<p>
+<p align="center">
     <img alt="GitHub License" src="https://img.shields.io/github/license/arturo-lang/vscode-extension?style=flat-square"><img alt="Visual Studio Marketplace Downloads" src="https://img.shields.io/visual-studio-marketplace/d/drkameleon.arturo?style=flat-square&label=Downloads%20on%20VS%20Code&labelColor=blue&color=black&cacheSeconds=30&link=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Ddrkameleon.arturo">
 </p>
 
