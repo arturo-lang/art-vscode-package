@@ -2,7 +2,7 @@
   "name": "arturo",
   "displayName": "Arturo",
   "description": "Syntax highlighting for the Arturo programming language",
-  "version": "0.7.0",
+  "version": "0.7.2",
   "publisher": "drkameleon",
   "repository": "https://github.com/arturo-lang/vscode-extension",
   "icon": "icons/gray.png",
@@ -13,6 +13,7 @@
     "onLanguage:art",
     "onCommand:arturo.runtime.repl",
     "onCommand:arturo.runtime.run",
+    "onCommand:arturo.runtime.run-current",
     "onCommand:arturo.runtime.bundle",
     "onCommand:arturo.meta.report-issue",
     "onCommand:arturo.meta.open-docs",
@@ -35,6 +36,11 @@
       {
         "command": "arturo.runtime.run",
         "title": "Arturo: Run File"
+      },
+      {
+        "command": "arturo.runtime.run-current",
+        "title": "Arturo: Run Current File",
+        "icon": "$(play)"
       },
       {
         "command": "arturo.runtime.bundle",
@@ -69,6 +75,15 @@
         "title": "Arturo: Update All Packages"
       }
     ],
+    "menus": {
+      "editor/title/run": [
+        {
+          "command": "arturo.runtime.run-current",
+          "group": "navigation@0",
+          "when": "resourceLangId == art && !isInDiffEditor && !virtualWorkspace"
+        }
+      ]
+    },
     "languages": [
       {
         "id": "art",
@@ -79,7 +94,43 @@
         "extensions": [
           ".art"
         ],
-        "configuration": "./grammar/config.json"
+        "configuration": "./grammar/config.json",
+        "icon": {
+          "light": "./icons/gray.png",
+          "dark": "./icons/gray.png"
+        }
+      },
+      {
+        "id": "art-test",
+        "aliases": [
+          "Unitt Arturo Tests",
+          "art-test"
+        ],
+        "extensions": [
+          ".test.art",
+          ".spec.art"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/purple.png",
+          "dark": "./icons/purple.png"
+        }
+      },
+      {
+        "id": "art-config",
+        "aliases": [
+          "Arturo Config",
+          "art-config"
+        ],
+        "filenames": [
+          "info.art",
+          "config.art"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/purple.png",
+          "dark": "./icons/purple.png"
+        }
       }
     ],
     "grammars": [
