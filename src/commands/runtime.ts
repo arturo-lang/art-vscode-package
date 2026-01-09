@@ -38,7 +38,7 @@ export const runCurrentFile = async () => {
 
     if (doc.isDirty) await doc.save()
 
-    arturo('Run', `"${doc.fileName}"`)
+    runWithDiagnostics(doc.fileName)
 }
 
 export const bundleFile = async () => {
