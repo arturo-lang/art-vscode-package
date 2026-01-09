@@ -41,13 +41,26 @@ Here we save all our snippets. This helps a lot on development, and we should ma
 
 ### Snippets Rules
 
-Each library has its own snippet, and the reason is that it makes it easier to us to maintain it.
+**Cursor/tab-stop order**
+- Tab stops should follow the function parameter order: the most important parameter (usually the first) must be visited first.
+- If a function has attributes that are conventionally written before the call, place them visually at the start of the snippet but give them later tab indices so the tab sequence visits parameters first.
+- Options should be later on the tab-stop sequence. But due to Arturo's syntax rules they must be before the last parameter. Peferably, put the attribute right after the function and before the first parameter. e.g.: `function .option: ${3:option} ${1:arg} ${2:arg}`.
 
-The order of the cursor should follow the order of the function parameters, since the most important one is the first one, generally. For attributes, we recommend to put them on the beginning, but being the last cursor order.
+**Descriptions:**
+- Add a "description" field only for non-obvious or complex functions (preferably copied or summarized from original docs).
+- Omit descriptions for simple, self-explanatory functions to reduce noise and maintenance.
 
-More complex functions should get a description from the original documentation, but obvious functions don't need description for the sake of simplicity and maintainance. Let's not repeat ourselves when not needed.
+**Iterator snippets**
+- Provide multiple variants to match common coding styles:
+    - custom element name.
+    - default short names: "x" or "i".
+    - fat-arrow/short arrow: "=>".
+    - arrow form: "'x -> …".
+    - full block body when the function often gets multi-statement body.
+- Prefer multiline/blocky snippet bodies for constructs that usually contain multiple statements (`loop`, `while`).
+- Prefer short single-line/arrow bodies for `map`/`filter` style iterators that typically hold one expression.
 
-When implementing iterators, remember that there are multiple ways of declaring them. You may: use a custom element name, default `x` or `i` name, use fat-arrow, or have a full body, so this should have alternatives when possible. `loop`, `while`, are more suitable to use multiline blocky body, since we generally write multiple statements inside. `map`, by other hand, are generally shorter and we generally write only a single statement, using arrow body.
+#### **Examples**
 
 **Simple and obvious function:**
 
