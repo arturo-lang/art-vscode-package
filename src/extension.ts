@@ -4,6 +4,11 @@ import { bundleFile, openRepl, runCurrentFile, runFile } from "./commands/runtim
 import { openDocs, reportIssue } from "./commands/meta"
 import { install, installed, registered, uninstall, updateAll } from "./commands/package"
 
+
+/** Register commands for the Arturo VS Code extension on activate.
+ * 
+ * @param context - The extension context provided by VS Code.
+ */
 export const activate = (context: Context) => {
 
     command(context, "arturo.runtime.repl", openRepl)
@@ -22,4 +27,8 @@ export const activate = (context: Context) => {
     
 }
 
+/** Deactivate the Arturo VS Code extension.
+ * 
+ *  Since there is no cleanup needed, this function is empty.
+ */
 export const deactivate = () => {}

@@ -1,20 +1,22 @@
+/** 
+ * @module commands/meta
+ * @fileoverview Arturo Meta related commands.
+ * 
+ * Meta refers to commands that provide information about the Arturo
+ * environment, documentation, or facilitate user feedback.
+ * 
+ */
+
 import * as vscode from 'vscode'
-import * as os from 'os'
-import * as fs from 'fs'
-import { execSync } from 'child_process'
 
+import { arturoVersion } from './helper/arturo'
+import { osInfo } from './helper/system'
 
-const getDistro = () => {
-    try {
-        if (process.platform === 'linux') {
-            const data = fs.readFileSync('/etc/os-release', 'utf8')
-            const m = data.match(/^PRETTY_NAME=(?:"|')?(.+?)(?:"|')?$/m)
-            if (m) return m[1]
-        }
-    } catch (e) {}
-    return ''
-}
-
+/** Opens the Arturo GitHub issues page to report a new issue.
+ * 
+ * Pre-fills the issue title and body with system information to help
+ * with debugging.
+ */
 export const reportIssue = async () => {
     const base = 'https://github.com/arturo-lang/arturo/issues/new'
 
@@ -30,13 +32,8 @@ export const reportIssue = async () => {
     const ext = vscode.extensions.getExtension('drkameleon.arturo')
     const extensionVersion = ext?.packageJSON?.version || 'unknown'
 
-    const distro = getDistro()
-    const osLine = `${os.type()} ${distro ? ' - ' + distro : ''}`
-
-    let arturoVersion = 'not found'
-    try {
-        arturoVersion = execSync('arturo --version', { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim()
-    } catch (e) {
+    let arturo: string | null = arturoVersion()
+    if (arturo === null) {
         const reason = 'Arturo command line tool not found.'
         const recommendation = 'Please ensure Arturo is installed and added to your PATH.'
         vscode.window.showErrorMessage(`${reason} ${recommendation}`)
@@ -54,8 +51,8 @@ export const reportIssue = async () => {
         '...',
         '',
         '**System**',
-        `- OS: ${osLine}`,
-        `- Arturo: ${arturoVersion}`,
+        `- OS: ${osInfo()}`,
+        `- Arturo: ${arturo}`,
         `- VS Code: ${appName} ${vscodeVersion} / Extension: v${extensionVersion}`,
         ``,
         '**More Information**',
@@ -67,6 +64,11 @@ export const reportIssue = async () => {
     vscode.env.openExternal(vscode.Uri.parse(url, ))
 }
 
+/** Opens the Arturo documentation in a webview panel.
+ * 
+ * If the webview cannot be created, it falls back to opening
+ * the documentation in the default web browser.
+ */
 export const openDocs = () => {
     const url = 'https://arturo-lang.io/latest/documentation/library'
 
