@@ -79,7 +79,7 @@
         "extensions": [
           ".art"
         ],
-        "configuration": "./language-configuration.json"
+        "configuration": "./grammar/config.json"
       }
     ],
     "grammars": [
