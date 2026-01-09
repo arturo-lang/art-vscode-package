@@ -1,3 +1,12 @@
+/** 
+ * @module commands/meta
+ * @fileoverview Arturo Meta related commands.
+ * 
+ * Meta refers to commands that provide information about the Arturo
+ * environment, documentation, or facilitate user feedback.
+ * 
+ */
+
 import * as vscode from 'vscode'
 import * as os from 'os'
 import * as fs from 'fs'
@@ -15,6 +24,11 @@ const getDistro = () => {
     return ''
 }
 
+/** Opens the Arturo GitHub issues page to report a new issue.
+ * 
+ * Pre-fills the issue title and body with system information to help
+ * with debugging.
+ */
 export const reportIssue = async () => {
     const base = 'https://github.com/arturo-lang/arturo/issues/new'
 
@@ -67,6 +81,11 @@ export const reportIssue = async () => {
     vscode.env.openExternal(vscode.Uri.parse(url, ))
 }
 
+/** Opens the Arturo documentation in a webview panel.
+ * 
+ * If the webview cannot be created, it falls back to opening
+ * the documentation in the default web browser.
+ */
 export const openDocs = () => {
     const url = 'https://arturo-lang.io/latest/documentation/library'
 
