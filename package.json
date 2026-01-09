@@ -2,7 +2,7 @@
   "name": "arturo",
   "displayName": "Arturo",
   "description": "Syntax highlighting for the Arturo programming language",
-  "version": "0.7.0",
+  "version": "0.7.2",
   "publisher": "drkameleon",
   "repository": "https://github.com/arturo-lang/vscode-extension",
   "icon": "icons/gray.png",
@@ -97,7 +97,7 @@
         "configuration": "./language-configuration.json",
         "icon": {
           "light": "./icons/gray.png",
-          "dark": "./icons/gray.png"        
+          "dark": "./icons/gray.png"
         }
       },
       {
@@ -113,7 +113,7 @@
         "configuration": "./language-configuration.json",
         "icon": {
           "light": "./icons/purple.png",
-          "dark": "./icons/purple.png"        
+          "dark": "./icons/purple.png"
         }
       },
       {
@@ -129,7 +129,7 @@
         "configuration": "./language-configuration.json",
         "icon": {
           "light": "./icons/purple.png",
-          "dark": "./icons/purple.png"        
+          "dark": "./icons/purple.png"
         }
       }
     ],
