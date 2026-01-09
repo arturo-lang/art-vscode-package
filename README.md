@@ -1,5 +1,8 @@
+<h1 align="center">
+    Arturo for VS Code
+</h1>
+
 <p align="center">
-<h1>Arturo for VS Code</h1>
 <i>Official Arturo Programming Language Extension for Visual Studio Code.</i>
 <br>
 <br><br>
