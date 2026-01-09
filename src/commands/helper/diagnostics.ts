@@ -50,14 +50,17 @@ const publishDiagnostic = (parsed: ParsedRuntimeError) => {
 }
 
 export const runWithDiagnostics = async (file: string) => {
-    diagnostics.delete(vscode.Uri.file(file))
+    const fullPath = path.resolve(file)
+    const fileUri = vscode.Uri.file(fullPath)
+
+    diagnostics.delete(fileUri)
 
     outputChannel.clear()
     outputChannel.show(true)
-    outputChannel.appendLine(`$ arturo "${path.basename(file)}"`)
+    outputChannel.appendLine(`$ arturo "${fullPath}"`)
 
     return new Promise<void>((resolve) => {
-        const proc = spawn('arturo', [file], { cwd: path.dirname(file) })
+        const proc = spawn('arturo', [fullPath], { cwd: path.dirname(fullPath) })
 
         let stderr = ''
 
@@ -79,7 +82,7 @@ export const runWithDiagnostics = async (file: string) => {
 
         proc.on('close', code => {
             if (code === 0) {
-                diagnostics.delete(vscode.Uri.file(file))
+                diagnostics.delete(fileUri)
                 resolve()
                 return
             }
