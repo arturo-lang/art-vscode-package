@@ -138,6 +138,16 @@
         "language": "art",
         "scopeName": "source.arturo",
         "path": "./grammar/definition.json"
+      },
+      {
+        "language": "art-test",
+        "scopeName": "source.arturo",
+        "path": "./grammar/definition.json"
+      },
+      {
+        "language": "art-config",
+        "scopeName": "source.arturo",
+        "path": "./grammar/definition.json"
       }
     ],
     "snippets": [
