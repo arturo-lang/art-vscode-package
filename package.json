@@ -86,7 +86,7 @@
       {
         "language": "art",
         "scopeName": "source.arturo",
-        "path": "./grammar/art.tmLanguage.json"
+        "path": "./grammar/definition.json"
       }
     ],
     "snippets": [
