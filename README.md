@@ -1,5 +1,8 @@
 # Arturo for VS Code
 
+![GitHub License](https://img.shields.io/github/license/arturo-lang/vscode-extension?style=flat-square) ![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/drkameleon.arturo?style=flat-square&label=Downloads%20on%20VS%20Code&labelColor=blue&color=black&cacheSeconds=30&link=https%3A%2F%2Fmarketplace.visualstudio.com%2Fitems%3FitemName%3Ddrkameleon.arturo)
+
+
 Official VS Code extension for the Arturo language. It adds first-class editing, running, and package management support directly inside the editor.
 
 ## Requirements
