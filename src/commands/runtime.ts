@@ -1,18 +1,20 @@
 import * as vscode from 'vscode'
 
-import {selectScript} from "./helper/ui"
-import { arturo } from './helper/arturo';
+import {selectScript} from './helper/ui'
+import { arturo } from './helper/arturo'
+import { runWithDiagnostics } from './helper/diagnostics'
+
 
 
 export const openRepl = () => {
-	arturo('REPL', '--repl')
-};
+    arturo('REPL', '--repl')
+}
 
 export const runFile = async () => {
-	const file = await selectScript()
+    const file = await selectScript()
     if (!file) return
 
-	arturo('Run', `"${file}"`)
+    await runWithDiagnostics(file)
 }
 
 export const runCurrentFile = async () => {
@@ -36,11 +38,11 @@ export const runCurrentFile = async () => {
 
     if (doc.isDirty) await doc.save()
 
-    arturo('Run', `"${doc.fileName}"`)
+    runWithDiagnostics(doc.fileName)
 }
 
 export const bundleFile = async () => {
-	const file = await selectScript()
+    const file = await selectScript()
     if (!file) return
 
     const asName = await vscode.window.showInputBox({
