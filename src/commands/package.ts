@@ -34,7 +34,6 @@ const registered = async () =>
 const selectPackage = async (
     packages: string[],
     placeholder: string,
-    emptyMessage: string
 ): Promise<string | null> => {
     ensure({
         that: packages.length > 0,
