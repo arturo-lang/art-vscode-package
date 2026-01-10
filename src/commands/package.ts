@@ -5,21 +5,26 @@
 
 import { ask } from './helper/ui'
 import { arturo } from './helper/arturo'
+import { ensure } from './helper/error'
 
 /** Asks the user for a package name to install. */
 export const install = async () => {
-    const packageName = await ask('Enter the name of the package to install:')
-    if (!packageName) return
+    const name: string = ensure({
+        that: await ask('Enter the name of the package to install:'),
+        reason: 'Package name is required to install a package.',
+    })
 
-    arturo("Package Manager", `--package install ${packageName}`)
+    arturo("Package Manager", `--package install ${name}`)
 }
 
 /** Asks the user for a package name to uninstall. */
 export const uninstall = async () => {
-    const packageName = await ask('Enter the name of the package to uninstall:')
-    if (!packageName) return
+    const name: string = ensure({
+        that: await ask('Enter the name of the package to uninstall:'),
+        reason: 'Package name is required to uninstall a package.',
+    })
 
-    arturo("Package Manager", `--package uninstall ${packageName}`)
+    arturo("Package Manager", `--package uninstall ${name}`)
 }
 
 /** Lists all installed packages. */
