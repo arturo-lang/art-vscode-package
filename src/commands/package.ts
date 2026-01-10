@@ -3,7 +3,8 @@
  * @fileoverview Arturo Package Manager related commands.
  */
 
-import { ask } from './helper/ui'
+import * as vscode from 'vscode'
+
 import { arturo } from './helper/arturo'
 import { ensure } from './helper/error'
 import { execSync } from 'child_process'
@@ -30,25 +31,50 @@ const installed = async () =>
 const registered = async () => 
         parsePackageList(execSync('arturo --package remote', { encoding: 'utf-8' }))
 
+const selectPackage = async (
+    packages: string[],
+    placeholder: string,
+    emptyMessage: string
+): Promise<string | null> => {
+    ensure({
+        that: packages.length > 0,
+        reason: 'No packages available for selection.'
+    })
+
+    const selection = await vscode.window.showQuickPick(packages, {
+        placeHolder: placeholder
+    })
+
+    return selection ?? null
+}
+
 
 /** Asks the user for a package name to install. */
 export const install = async () => {
     const name: string = ensure({
-        that: await ask('Enter the name of the package to install:'),
-        reason: 'Package name is required to install a package.',
+        that: await selectPackage(
+            await registered(),
+            'Select a package to install',
+            'No registered packages found.'
+        ),
+        reason: 'Package selection is required to install a package.'
     })
 
-    arturo("Package Manager", `--package install ${name}`)
+    arturo('Package Manager', `--package install ${name}`)
 }
 
 /** Asks the user for a package name to uninstall. */
 export const uninstall = async () => {
     const name: string = ensure({
-        that: await ask('Enter the name of the package to uninstall:'),
-        reason: 'Package name is required to uninstall a package.',
+        that: await selectPackage(
+            await installed(),
+            'Select a package to uninstall',
+            'No installed packages found.'
+        ),
+        reason: 'Package selection is required to uninstall a package.'
     })
 
-    arturo("Package Manager", `--package uninstall ${name}`)
+    arturo('Package Manager', `--package uninstall ${name}`)
 }
 
 /** Updates all installed packages to their latest versions. */
