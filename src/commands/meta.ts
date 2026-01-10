@@ -18,7 +18,7 @@ import { osInfo } from './helper/system'
  * with debugging.
  */
 export const reportIssue = async () => {
-    const base = 'https://github.com/RickBarretto/arturo/issues/new'
+    const base = 'https://github.com/arturo-lang/arturo/issues/new'
 
     const title = await vscode.window.showInputBox({
         prompt: 'Issue title',
