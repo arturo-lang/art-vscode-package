@@ -63,8 +63,10 @@ export const runCurrentFile = async () => {
  * If no file is selected, the function exits without action.
  */
 export const bundleFile = async () => {
-    const file = await selectScript()
-    if (!file) return
+    const file = ensure({
+        that: await selectScript(),
+        reason: 'No Arturo file selected to bundle.',
+    })
 
     const asName = await vscode.window.showInputBox({
         prompt: 'Enter the bundle name',
