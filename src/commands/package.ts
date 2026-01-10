@@ -22,6 +22,15 @@ const parsePackageList = (raw: string): string[] => {
         .map(match => match[1].trim())
 }
 
+/** Lists all installed packages. */
+const installed = async () =>
+    parsePackageList(execSync('arturo --package list', { encoding: 'utf-8' }))
+
+/** Lists all registered remote packages. */
+const registered = async () => 
+        parsePackageList(execSync('arturo --package remote', { encoding: 'utf-8' }))
+
+
 /** Asks the user for a package name to install. */
 export const install = async () => {
     const name: string = ensure({
@@ -40,20 +49,6 @@ export const uninstall = async () => {
     })
 
     arturo("Package Manager", `--package uninstall ${name}`)
-}
-
-/** Lists all installed packages. */
-export const installed = async () => {
-    const output = execSync('arturo --package list', { encoding: 'utf-8' })
-    const list = parsePackageList(output)
-    console.log(list)
-}
-
-/** Lists all registered remote packages. */
-export const registered = async () => {
-    const output = execSync('arturo --package remote', { encoding: 'utf-8' })
-    const list = parsePackageList(output)
-    console.log(list)
 }
 
 /** Updates all installed packages to their latest versions. */

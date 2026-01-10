@@ -19,8 +19,6 @@
     "onCommand:arturo.meta.open-docs",
     "onCommand:arturo.package.install",
     "onCommand:arturo.package.uninstall",
-    "onCommand:arturo.package.list",
-    "onCommand:arturo.package.remote",
     "onCommand:arturo.package.update"
   ],
   "categories": [
@@ -61,14 +59,6 @@
       {
         "command": "arturo.package.uninstall",
         "title": "Arturo: Uninstall Package"
-      },
-      {
-        "command": "arturo.package.list",
-        "title": "Arturo: List Installed Packages"
-      },
-      {
-        "command": "arturo.package.remote",
-        "title": "Arturo: List Registered Packages"
       },
       {
         "command": "arturo.package.update",
