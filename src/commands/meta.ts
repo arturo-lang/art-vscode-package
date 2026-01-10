@@ -22,7 +22,7 @@ export const reportIssue = async () => {
 
     const title = await vscode.window.showInputBox({
         prompt: 'Issue title',
-        placeHolder: 'Short, descriptive title for the issue'
+        placeHolder: 'e.g.: [Collections\\split] Function is not working as expected',
     })
     if (title === undefined) return
 
