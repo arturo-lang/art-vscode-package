@@ -18,7 +18,7 @@ import { osInfo } from './helper/system'
  * with debugging.
  */
 export const reportIssue = async () => {
-    const base = 'https://github.com/arturo-lang/arturo/issues/new'
+    const base = 'https://github.com/RickBarretto/arturo/issues/new'
 
     const title = await vscode.window.showInputBox({
         prompt: 'Issue title',
@@ -40,27 +40,27 @@ export const reportIssue = async () => {
         return
     }
 
-    const body = [
-        '**Bug Description**',
-        "...",
-        '',
-        '**Steps to Reproduce**',
-        '...',
-        '',
-        '**Expected behavior**',
-        '...',
-        '',
-        '**System**',
-        `- OS: ${osInfo()}`,
-        `- Arturo: ${arturo}`,
-        `- VS Code: ${appName} ${vscodeVersion} / Extension: v${extensionVersion}`,
-        ``,
-        '**More Information**',
-        '  - Issue reported from VS Code extension',
-        '  - ...'
-    ].join('\n')
+    const extensionContext = `
+Issue reported from official Arturo's VS Code extension.
+- VS Code: ${appName} ${vscodeVersion} / Extension: v${extensionVersion}
+`
 
-    const url = `${base}?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`
+    const formsQuery = "?template=bug-report.yaml"
+    const titleQuery = `title=${encodeURIComponent(title)}`
+    const osQuery = `os=${encodeURIComponent(osInfo())}`
+    const versionQuery = `version=${encodeURIComponent(arturo)}`
+    const contextQuery = `additional-context=${encodeURIComponent(extensionContext)}`
+
+    const query = [
+        formsQuery,
+        titleQuery,
+        osQuery,
+        versionQuery,
+        contextQuery
+    ].join("&")
+
+    const url = `${base}${query}`
+
     vscode.env.openExternal(vscode.Uri.parse(url, ))
 }
 
