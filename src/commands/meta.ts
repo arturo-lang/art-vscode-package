@@ -12,7 +12,7 @@ import * as vscode from 'vscode'
 import { arturoVersion } from './helper/arturo'
 import { GithubUrl } from './helper/github'
 import { ensure } from './helper/error'
-import { osInfo } from './helper/system'
+import { extensionVersion, osInfo, vscodeInfo } from './helper/system'
 
 /** Opens the Arturo GitHub issues page to report a new issue.
  * 
@@ -40,13 +40,9 @@ export const reportIssue = async () => {
         as: 'error'
     })
 
-    const appName = vscode.env.appName || 'unknown'
-    const vscodeVersion = (vscode as any).version || 'unknown'
-    const extensionVersion = vscode.extensions.getExtension('drkameleon.arturo')?.packageJSON?.version || 'unknown'
-
     const context = [
         'Issue reported from official Arturo\'s VS Code extension.',
-        `- VS Code: ${appName} ${vscodeVersion} / Extension: v${extensionVersion}`
+        `- VS Code: ${vscodeInfo()} / Extension: v${extensionVersion()}`
     ].join('\n')
     
     const url = new GithubUrl({ owner: 'arturo-lang', repo: 'arturo' })
