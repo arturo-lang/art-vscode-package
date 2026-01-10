@@ -13,6 +13,7 @@ import { arturoVersion } from './helper/arturo'
 import { GithubUrl } from './helper/github'
 import { ensure } from './helper/error'
 import { extensionVersion, osInfo, vscodeInfo } from './helper/system'
+import { openPage } from './helper/ui'
 
 /** Opens the Arturo GitHub issues page to report a new issue.
  * 
@@ -64,24 +65,8 @@ export const reportIssue = async () => {
  * the documentation in the default web browser.
  */
 export const openDocs = () => {
-    const url = 'https://arturo-lang.io/latest/documentation/library'
-
-    try {
-        const panel = vscode.window.createWebviewPanel(
-            'arturoDocs',
-            'Arturo Documentation',
-            vscode.ViewColumn.Beside,
-            {
-                enableScripts: true,
-                retainContextWhenHidden: true
-            }
-        )
-
-        panel.webview.html = `<!doctype html>
-            <meta http-equiv="Content-Security-Policy" content="default-src 'none'; frame-src https:; style-src 'unsafe-inline';">
-            <style>html,body,iframe{height:100%;width:100%;margin:0;padding:0;border:0}</style>
-            <iframe src="${url}" frameBorder="0" style="width:100%;height:100%;"></iframe>`
-    } catch (e) {
-        vscode.env.openExternal(vscode.Uri.parse(url))
-    }
+    openPage({
+        url: 'https://arturo-lang.io/latest/documentation/library',
+        title: 'Arturo Documentation'
+    })
 }
