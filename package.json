@@ -17,7 +17,7 @@
     "onCommand:arturo.runtime.bundle",
     "onCommand:arturo.meta.report-issue",
     "onCommand:arturo.meta.open-docs",
-    "onCommand:arturo.package.manage",
+    "onCommand:arturo.package.manage"
   ],
   "categories": [
     "Programming Languages"
