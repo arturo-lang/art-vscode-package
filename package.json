@@ -53,6 +53,10 @@
         "title": "Arturo: Open Documentation"
       },
       {
+        "command": "arturo.package.open-docs",
+        "title": "Arturo: Open Package Documentation"
+      },
+      {
         "command": "arturo.package.install",
         "title": "Arturo: Install Package"
       },

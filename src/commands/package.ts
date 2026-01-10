@@ -8,6 +8,7 @@ import * as vscode from 'vscode'
 import { arturo } from './helper/arturo'
 import { ensure } from './helper/error'
 import { execSync } from 'child_process'
+import { openPage } from './helper/ui'
 
 /**
  * Parse the tabular output of arturo and return only package names.
@@ -45,6 +46,20 @@ const selectPackage = async (
     })
 
     return selection ?? null
+}
+
+
+export const openPackageDocs = async () => {
+    const message = 'Select a package to view documentation'
+    const name: string = ensure({
+        that: await selectPackage(await registered(), message),
+        reason: 'Package selection is required to view documentation.'
+    })
+
+    openPage({
+        url: `https://${name}.pkgr.art`,
+        title: `Package: ${name} Documentation`
+    })
 }
 
 

@@ -2,7 +2,7 @@ import { command, Context } from "./helper"
 
 import { bundleFile, openRepl, runCurrentFile, runFile } from "./commands/runtime"
 import { openDocs, reportIssue } from "./commands/meta"
-import { install, uninstall, updateAll } from "./commands/package"
+import { install, openPackageDocs, uninstall, updateAll } from "./commands/package"
 
 
 /** Register commands for the Arturo VS Code extension on activate.
@@ -16,6 +16,7 @@ export const activate = (context: Context) => {
     command(context, "arturo.runtime.run-current", runCurrentFile)
     command(context, "arturo.runtime.bundle", bundleFile)
 
+    command(context, "arturo.package.open-docs", openPackageDocs)
     command(context, "arturo.package.install", install)
     command(context, "arturo.package.uninstall", uninstall)
     command(context, "arturo.package.update", updateAll)
