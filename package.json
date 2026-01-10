@@ -53,20 +53,8 @@
         "title": "Arturo: Open Documentation"
       },
       {
-        "command": "arturo.package.open-docs",
-        "title": "Arturo: Open Package Documentation"
-      },
-      {
-        "command": "arturo.package.install",
-        "title": "Arturo: Install Package"
-      },
-      {
-        "command": "arturo.package.uninstall",
-        "title": "Arturo: Uninstall Package"
-      },
-      {
-        "command": "arturo.package.update",
-        "title": "Arturo: Update All Packages"
+        "command": "arturo.package.manage",
+        "title": "Arturo: Manage Packages"
       }
     ],
     "menus": {
