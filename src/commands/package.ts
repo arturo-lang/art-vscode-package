@@ -50,12 +50,9 @@ const selectPackage = async (
 
 /** Asks the user for a package name to install. */
 export const install = async () => {
+    const message = 'Select a package to install'
     const name: string = ensure({
-        that: await selectPackage(
-            await registered(),
-            'Select a package to install',
-            'No registered packages found.'
-        ),
+        that: await selectPackage(await registered(), message),
         reason: 'Package selection is required to install a package.'
     })
 
@@ -64,12 +61,9 @@ export const install = async () => {
 
 /** Asks the user for a package name to uninstall. */
 export const uninstall = async () => {
+    const message = 'Select a package to uninstall'
     const name: string = ensure({
-        that: await selectPackage(
-            await installed(),
-            'Select a package to uninstall',
-            'No installed packages found.'
-        ),
+        that: await selectPackage(await installed(), message),
         reason: 'Package selection is required to uninstall a package.'
     })
 
