@@ -6,6 +6,21 @@
 import { ask } from './helper/ui'
 import { arturo } from './helper/arturo'
 import { ensure } from './helper/error'
+import { execSync } from 'child_process'
+
+/**
+ * Parse the tabular output of arturo and return only package names.
+ */
+const parsePackageList = (raw: string): string[] => {
+    const entry = /^\s*[-*]\s+([^\s]+)\s+/
+
+    return raw
+        .split(/\r?\n/)
+        .filter(line => line.startsWith('- ') || line.startsWith('* '))
+        .map(line => entry.exec(line))
+        .filter((match): match is RegExpExecArray => !!match)
+        .map(match => match[1].trim())
+}
 
 /** Asks the user for a package name to install. */
 export const install = async () => {
@@ -29,12 +44,16 @@ export const uninstall = async () => {
 
 /** Lists all installed packages. */
 export const installed = async () => {
-    arturo("Package Manager", `--package list`)
+    const output = execSync('arturo --package list', { encoding: 'utf-8' })
+    const list = parsePackageList(output)
+    console.log(list)
 }
 
 /** Lists all registered remote packages. */
 export const registered = async () => {
-    arturo("Package Manager", `--package remote`)
+    const output = execSync('arturo --package remote', { encoding: 'utf-8' })
+    const list = parsePackageList(output)
+    console.log(list)
 }
 
 /** Updates all installed packages to their latest versions. */
