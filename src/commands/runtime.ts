@@ -22,8 +22,10 @@ export const openRepl = () => {
  * If no file is selected, the function exits without action.
  * */
 export const runFile = async () => {
-    const file = await selectScript()
-    if (!file) return
+    const file: string = ensure({
+        that: await selectScript(),
+        reason: 'No Arturo file selected to run.',
+    })
 
     await runWithDiagnostics(file)
 }
