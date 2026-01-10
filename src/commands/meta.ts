@@ -10,6 +10,7 @@
 import * as vscode from 'vscode'
 
 import { arturoVersion } from './helper/arturo'
+import { GithubUrl } from './helper/github'
 import { osInfo } from './helper/system'
 
 /** Opens the Arturo GitHub issues page to report a new issue.
@@ -18,12 +19,12 @@ import { osInfo } from './helper/system'
  * with debugging.
  */
 export const reportIssue = async () => {
-    const base = 'https://github.com/arturo-lang/arturo/issues/new'
-
+    const template = 'bug-report.yaml'
     const title = await vscode.window.showInputBox({
         prompt: 'Issue title',
         placeHolder: 'e.g.: [Collections\\split] Function is not working as expected',
     })
+
     if (title === undefined) return
 
     const vscodeVersion = (vscode as any).version || 'unknown'
@@ -40,28 +41,22 @@ export const reportIssue = async () => {
         return
     }
 
-    const extensionContext = `
-Issue reported from official Arturo's VS Code extension.
-- VS Code: ${appName} ${vscodeVersion} / Extension: v${extensionVersion}
-`
+    const context = [
+        'Issue reported from official Arturo\'s VS Code extension.',
+        `- VS Code: ${appName} ${vscodeVersion} / Extension: v${extensionVersion}`
+    ].join('\n')
+    
+    const url = new GithubUrl({ owner: 'arturo-lang', repo: 'arturo' })
+        .withPath('issues/new')
+        .withQuery({
+            template,
+            title,
+            os: osInfo(),
+            version: arturo,
+            'additional-context': context
+        })
 
-    const formsQuery = "?template=bug-report.yaml"
-    const titleQuery = `title=${encodeURIComponent(title)}`
-    const osQuery = `os=${encodeURIComponent(osInfo())}`
-    const versionQuery = `version=${encodeURIComponent(arturo)}`
-    const contextQuery = `additional-context=${encodeURIComponent(extensionContext)}`
-
-    const query = [
-        formsQuery,
-        titleQuery,
-        osQuery,
-        versionQuery,
-        contextQuery
-    ].join("&")
-
-    const url = `${base}${query}`
-
-    vscode.env.openExternal(vscode.Uri.parse(url, ))
+    vscode.env.openExternal(vscode.Uri.parse(url.toString()))
 }
 
 /** Opens the Arturo documentation in a webview panel.
