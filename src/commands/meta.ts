@@ -11,6 +11,7 @@ import * as vscode from 'vscode'
 
 import { arturoVersion } from './helper/arturo'
 import { GithubUrl } from './helper/github'
+import { ensure,  withNotify } from './helper/error'
 import { osInfo } from './helper/system'
 
 /** Opens the Arturo GitHub issues page to report a new issue.
@@ -18,28 +19,30 @@ import { osInfo } from './helper/system'
  * Pre-fills the issue title and body with system information to help
  * with debugging.
  */
-export const reportIssue = async () => {
+export const reportIssue = withNotify(async () => {
     const template = 'bug-report.yaml'
-    const title = await vscode.window.showInputBox({
-        prompt: 'Issue title',
-        placeHolder: 'e.g.: [Collections\\split] Function is not working as expected',
+
+    const title: string = ensure({
+        that: await vscode.window.showInputBox({
+            prompt: 'Issue title',
+            placeHolder: 'e.g.: [Collections\\split] Function is not working as expected',
+        }),
+        reason: 'Issue title is required to report an issue.',
+        as: 'warning'
     })
 
-    if (title === undefined) return
+    const version: string = ensure({ 
+        that: arturoVersion,
+        reason: [
+            'Arturo command line tool not found.',
+            'Please ensure Arturo is installed and added to your PATH.', 
+        ],
+        as: 'error'
+    })
 
-    const vscodeVersion = (vscode as any).version || 'unknown'
     const appName = vscode.env.appName || 'unknown'
-
-    const ext = vscode.extensions.getExtension('drkameleon.arturo')
-    const extensionVersion = ext?.packageJSON?.version || 'unknown'
-
-    let arturo: string | null = arturoVersion()
-    if (arturo === null) {
-        const reason = 'Arturo command line tool not found.'
-        const recommendation = 'Please ensure Arturo is installed and added to your PATH.'
-        vscode.window.showErrorMessage(`${reason} ${recommendation}`)
-        return
-    }
+    const vscodeVersion = (vscode as any).version || 'unknown'
+    const extensionVersion = vscode.extensions.getExtension('drkameleon.arturo')?.packageJSON?.version || 'unknown'
 
     const context = [
         'Issue reported from official Arturo\'s VS Code extension.',
@@ -52,12 +55,12 @@ export const reportIssue = async () => {
             template,
             title,
             os: osInfo(),
-            version: arturo,
+            version: version ?? "unknown",
             'additional-context': context
         })
 
     vscode.env.openExternal(vscode.Uri.parse(url.toString()))
-}
+})
 
 /** Opens the Arturo documentation in a webview panel.
  * 
