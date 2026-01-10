@@ -11,7 +11,7 @@ import * as vscode from 'vscode'
 
 import { arturoVersion } from './helper/arturo'
 import { GithubUrl } from './helper/github'
-import { ensure,  withNotify } from './helper/error'
+import { ensure } from './helper/error'
 import { osInfo } from './helper/system'
 
 /** Opens the Arturo GitHub issues page to report a new issue.
@@ -19,7 +19,7 @@ import { osInfo } from './helper/system'
  * Pre-fills the issue title and body with system information to help
  * with debugging.
  */
-export const reportIssue = withNotify(async () => {
+export const reportIssue = async () => {
     const template = 'bug-report.yaml'
 
     const title: string = ensure({
@@ -60,7 +60,7 @@ export const reportIssue = withNotify(async () => {
         })
 
     vscode.env.openExternal(vscode.Uri.parse(url.toString()))
-})
+}
 
 /** Opens the Arturo documentation in a webview panel.
  * 
