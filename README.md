@@ -48,12 +48,8 @@ You can find these in the Command Palette (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd
 | Arturo: Run File | Choose any `.art` file in the workspace and run it with diagnostics |
 | Arturo: Run Current File | Run the active Arturo file; saves unsaved edits and surfaces errors inline |
 | Arturo: Bundle File | Pick a script and produce a bundled executable (optional custom output name) |
-| Arturo: Install Package | Prompt for a package name and install it via `arturo --package install` |
-| Arturo: Uninstall Package | Remove a package via `arturo --package uninstall` |
-| Arturo: List Installed Packages | Show locally installed packages |
-| Arturo: List Registered Packages | List remote/registered packages |
-| Arturo: Update All Packages | Update every installed package |
-| Arturo: Open Documentation | Open the Arturo library docs in a side webview (falls back to browser) |
+| Arturo: Manage Packages | Install, Uninstall, Update and Open Documentation of Packages |
+| Arturo: Open Documentation | Open the Arturo's Documentation on side-view |
 | Arturo: Report Issue | Open GitHub issues with system details prefilled |
 
 ### Grammar
