@@ -17,11 +17,7 @@
     "onCommand:arturo.runtime.bundle",
     "onCommand:arturo.meta.report-issue",
     "onCommand:arturo.meta.open-docs",
-    "onCommand:arturo.package.install",
-    "onCommand:arturo.package.uninstall",
-    "onCommand:arturo.package.list",
-    "onCommand:arturo.package.remote",
-    "onCommand:arturo.package.update"
+    "onCommand:arturo.package.manage"
   ],
   "categories": [
     "Programming Languages"
@@ -55,24 +51,8 @@
         "title": "Arturo: Open Documentation"
       },
       {
-        "command": "arturo.package.install",
-        "title": "Arturo: Install Package"
-      },
-      {
-        "command": "arturo.package.uninstall",
-        "title": "Arturo: Uninstall Package"
-      },
-      {
-        "command": "arturo.package.list",
-        "title": "Arturo: List Installed Packages"
-      },
-      {
-        "command": "arturo.package.remote",
-        "title": "Arturo: List Registered Packages"
-      },
-      {
-        "command": "arturo.package.update",
-        "title": "Arturo: Update All Packages"
+        "command": "arturo.package.manage",
+        "title": "Arturo: Manage Packages"
       }
     ],
     "menus": {
