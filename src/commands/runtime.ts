@@ -7,7 +7,6 @@ import * as vscode from 'vscode'
 
 import {selectScript} from './helper/ui'
 import { arturo } from './helper/arturo'
-import { runWithDiagnostics } from './helper/diagnostics'
 import { ensure } from './helper/error'
 
 
@@ -27,7 +26,7 @@ export const runFile = async () => {
         reason: 'No Arturo file selected to run.',
     })
 
-    await runWithDiagnostics(file)
+    arturo("Execute", file)
 }
 
 /** Runs the currently active Arturo file in the editor.
@@ -56,7 +55,8 @@ export const runCurrentFile = async () => {
     if (editor.document.isDirty) 
         await editor.document.save()
 
-    runWithDiagnostics(editor.document.fileName)
+    const file = editor.document.fileName
+    arturo("Execute", file)
 }
 
 /** Prompts the user to select an Arturo script and bundles it.
