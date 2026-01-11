@@ -49,7 +49,7 @@ You can find these in the Command Palette (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd
 | Arturo: Run Current File | Run the active Arturo file; saves unsaved edits and surfaces errors inline |
 | Arturo: Bundle File | Pick a script and produce a bundled executable (optional custom output name) |
 | Arturo: Manage Packages | Install, Uninstall, Update and Open Documentation of Packages |
-| Arturo: Open Documentation | Open the Arturo library docs in a side webview (falls back to browser) |
+| Arturo: Open Documentation | Open the Arturo's Documentation on side-view |
 | Arturo: Report Issue | Open GitHub issues with system details prefilled |
 
 ### Grammar
