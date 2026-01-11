@@ -74,12 +74,12 @@ const openPackageDocs = async () => {
 export const managePackages = async () => {
     const { value } = await pickAction()
 
-    const options = {
+    const options: Record<PackageAction, () => Promise<void>> = {
         install: installPackage,
         uninstall: uninstallPackage,
         update: updatePackages,
         docs: openPackageDocs
     }
 
-    options[value]()
+    await options[value]()
 }
