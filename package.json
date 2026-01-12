@@ -7,10 +7,11 @@
   "repository": "https://github.com/arturo-lang/vscode-extension",
   "icon": "icons/gray.png",
   "engines": {
-    "vscode": "^1.52.0"
+    "vscode": "^1.87.0"
   },
   "activationEvents": [
     "onLanguage:art",
+    "onNotebook:arturo-sketch",
     "onCommand:arturo.runtime.repl",
     "onCommand:arturo.runtime.run",
     "onCommand:arturo.runtime.run-current",
@@ -24,6 +25,18 @@
   ],
   "main": "./out/extension",
   "contributes": {
+    "notebooks": [
+      {
+        "type": "arturo-sketch",
+        "displayName": "Arturo Sketch",
+        "selector": [
+          {
+            "filenamePattern": "*.sketch"
+          }
+        ],
+        "priority": "default"
+      }
+    ],
     "commands": [
       {
         "command": "arturo.runtime.repl",
@@ -188,7 +201,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.30",
-    "@types/vscode": "^1.51.0",
+    "@types/vscode": "^1.87.0",
     "tslint": "^5.16.0",
     "typescript": "^5.9.3"
   }

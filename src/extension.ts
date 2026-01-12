@@ -3,6 +3,7 @@ import { command, Context } from "./helper"
 import { bundleFile, openRepl, runCurrentFile, runFile } from "./commands/runtime"
 import { openDocs, reportIssue } from "./commands/meta"
 import { managePackages } from "./commands/package"
+import { registerNotebook } from "./notebook"
 
 
 /** Register commands for the Arturo VS Code extension on activate.
@@ -10,6 +11,8 @@ import { managePackages } from "./commands/package"
  * @param context - The extension context provided by VS Code.
  */
 export const activate = (context: Context) => {
+
+    registerNotebook(context)
 
     command(context, "arturo.runtime.repl", openRepl)
     command(context, "arturo.runtime.run", runFile)

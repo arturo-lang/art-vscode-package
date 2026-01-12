@@ -1,0 +1,63 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": { "language": "markdown" },
+      "source": [
+        "# Arturo quick sketch",
+        "",
+        "Use arturo -e \"\"\"...\"\"\" for quick eval or save this sketch and run arturo docs/arturo-hello.sketch."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": { "language": "arturo" },
+      "source": [
+        "# Hello, Arturo!",
+        "print \"Hello from Arturo\""
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": { "language": "arturo" },
+      "source": [
+        "; Tiny arithmetic + list example",
+        "a: 2",
+        "b: 3",
+        "total: a + b",
+        "nums: @[1 2 3 4 5]",
+        "print \"Total: \" + total",
+        "print \"Doubled: \" + (map nums => &* 2)"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": { "language": "arturo" },
+      "source": [
+        "# Mini function + loop",
+        "greet: function [name][",
+        "    print \"Hi, \" + name",
+        "]",
+        "foreach [\"Ada\" \"Lin\" \"Max\"] => [greet &]"
+      ],
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Arturo",
+      "language": "arturo",
+      "name": "arturo"
+    },
+    "language_info": {
+      "name": "arturo"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
