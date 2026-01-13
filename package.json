@@ -15,6 +15,7 @@
     "onCommand:arturo.runtime.run",
     "onCommand:arturo.runtime.run-current",
     "onCommand:arturo.runtime.bundle",
+    "onCommand:arturo.meta.llm-context",
     "onCommand:arturo.meta.report-issue",
     "onCommand:arturo.meta.open-docs",
     "onCommand:arturo.package.manage"
@@ -41,6 +42,10 @@
       {
         "command": "arturo.runtime.bundle",
         "title": "Arturo: Bundle File"
+      },
+      {
+        "command": "arturo.meta.llm-context",
+        "title": "Arturo: Include LLM Context"
       },
       {
         "command": "arturo.meta.report-issue",

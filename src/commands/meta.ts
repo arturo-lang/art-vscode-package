@@ -70,3 +70,27 @@ export const openDocs = () => {
         title: 'Arturo Documentation'
     })
 }
+
+
+export const includeAIContext = () => {
+    const url = 'https://arturo-lang.io/latest/llms.txt'
+    void (async () => {
+        if (!vscode.workspace.workspaceFolders?.length) {
+            vscode.window.showWarningMessage('Open a workspace to include the LLM context.')
+            return
+        }
+
+        const target = vscode.Uri.joinPath(vscode.workspace.workspaceFolders[0].uri, 'LLM.md')
+
+        try {
+            const response = await fetch(url)
+            const content = await response.text()
+
+            await vscode.workspace.fs.writeFile(target, Buffer.from(content, 'utf8'))
+            vscode.window.showInformationMessage('LLM context downloaded as LLM.md.')
+        } catch (error) {
+            vscode.window.showErrorMessage('Failed to download LLM context.')
+            console.error(error)
+        }
+    })()
+}

@@ -1,7 +1,7 @@
 import { command, Context } from "./helper"
 
 import { bundleFile, openRepl, runCurrentFile, runFile } from "./commands/runtime"
-import { openDocs, reportIssue } from "./commands/meta"
+import { openDocs, reportIssue, includeAIContext } from "./commands/meta"
 import { managePackages } from "./commands/package"
 
 
@@ -18,9 +18,10 @@ export const activate = (context: Context) => {
 
     command(context, "arturo.package.manage", managePackages)
 
+    command(context, "arturo.meta.llm-context", includeAIContext)
     command(context, "arturo.meta.report-issue", reportIssue)
     command(context, "arturo.meta.open-docs", openDocs)
-    
+
 }
 
 /** Deactivate the Arturo VS Code extension.
