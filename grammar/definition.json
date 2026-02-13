@@ -277,7 +277,7 @@
 		},
 		"labels": {
 			"patterns": [{
-				"name": "variable.other.art",
+				"name": "variable.parameter.art",
 				"match": "([\\w\\_]+\\b\\??:)"
 			}]
 		}
