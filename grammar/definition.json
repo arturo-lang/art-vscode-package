@@ -15,6 +15,9 @@
 			"include": "#builtins2"
 		},
 		{
+			"include": "#constants"
+		},
+		{
 			"include": "#chars"
 		},
 		{
@@ -54,9 +57,6 @@
 			"include": "#string_block"
 		},
 		{
-			"include": "#constants"
-		},
-		{
 			"include": "#sugar"
 		},
 		{
@@ -92,19 +92,25 @@
 		},
 		"builtins1": {
 			"patterns": [{
-				"name": "support.constant.art",
+				"name": "support.function.art",
 				"match": "(?<!['\\\\])\\b(absolute|acceleration|action|all|and|angle|angularVelocity|any|area|areaDensity|ascii|attr|attribute|attributeLabel|between|binary|block|bytecode|capacitance|char|charge|color|complex|conductance|conforms|contains|currency|current|currentDensity|database|dataTransferRate|date|defined|density|dictionary|directory|disjoint|elastance|electricField|electricityPrice|empty|energy|entropy|equal|error|errorKind|even|every|exists|false|file|floating|force|frequency|friday|function|future|greater|greaterOrEqual|heatFlux|hidden|illuminance|in|inductance|infinite|information|inline|integer|intersect|is|jerk|key|kinematicViscosity|label|leap|length|less|lessOrEqual|literal|logical|lower|luminosity|luminousFlux|magneticFieldStrength|magneticFlux|magneticFluxDensity|mass|massFlowRate|match|method|molarConcentration|moleFlowRate|momentofInertia|momentum|monday|nand|negative|nor|not|notEqual|null|numeric|object|odd|one|or|past|path|pathLabel|pathLiteral|permeability|permittivity|positive|potential|power|prefix|pressure|prime|quantity|radiation|radiationExposure|range|rational|regex|resistance|resistivity|salary|same|saturday|send|set|snap|socket|solidAngle|some|sorted|specificVolume|speed|standalone|store|string|subset|substance|suffix|sunday|superset|superuser|surfaceTension|symbol|symbolLiteral|symlink|temperature|thermalConductivity|thermalInsulance|throws|thursday|time|today|true|tuesday|type|unit|unitless|upper|version|viscosity|volume|volumetricFlow|waveNumber|wednesday|whitespace|word|xnor|xor|zero)\\?(?!:)"
 			}]
 		},
 		"builtins2": {
 			"patterns": [{
-				"name": "support.constant.art",
-				"match": "(?<!['\\\\])\\b(abs|absolute|accept|acos|acosh|acsec|acsech|actan|actanh|add|after|alert|alias|alphabet|alphaParticleMass|and|angle|angstromStar|any|append|arg|args|arithmeticError|arity|arrange|array|asec|asech|asin|asinh|assertionError|atan|atan2|atanh|atomicMass|attr|attrs|average|avogadroConstant|before|benchmark|blend|bohrRadius|boltzmannConstant|break|browse|call|capitalize|case|ceil|chop|chunk|clamp|classicalElectronRadius|clear|clip|close|cluster|coalesce|collect|color|combine|compare|conductanceQuantum|config|conj|connect|constructor|continue|conversionError|convert|copy|cos|cosh|couple|crc|csec|csech|ctan|ctanh|cursor|darken|dec|decode|decouple|define|delete|denominator|desaturate|deuteronMass|deviation|dialog|dictionary|difference|digest|digits|discard|div|divmod|do|download|drop|dup|electronCharge|electronMass|electronMassEnergy|empty|encode|ensure|enumerate|env|epsilon|escape|execute|exit|exp|export|express|extend|extract|factorial|factors|false|fdiv|filter|first|flatten|floor|fold|function|gamma|gather|gcd|get|goto|gravitationalConstant|grayscale|hartreeEnergy|hash|helionMass|hypot|if|impedanceOfVacuum|import|in|inc|indent|index|indexError|infinite|info|input|insert|inspect|intersection|inverseConductanceQuantum|invert|is|jaro|join|josephsonConstant|keys|kurtosis|last|lcm|let|levenshtein|libraryError|lighten|list|listen|ln|log|loop|lower|magneticFluxQuantum|mail|map|match|max|maximum|maybe|median|method|methods|min|minimum|mod|module|molarGasConstant|move|mul|muonMass|nameError|nand|neg|neutronMass|new|nor|normalize|not|now|null|numerator|open|or|outdent|packageError|pad|palette|panic|parse|path|pause|permissions|permutate|pi|planckConstant|planckLength|planckMass|planckTemperature|planckTime|pop|popup|pow|powerset|powmod|prepend|print|prints|process|product|property|protonMass|protonMassEnergy|query|random|range|read|receive|reciprocal|reducedPlanckConstant|relative|remove|rename|render|repeat|replace|request|return|reverse|rotate|round|runtimeError|rydbergConstant|sample|saturate|scalar|script|sec|sech|select|send|serve|set|shl|shr|shuffle|sin|sinh|size|skewness|slice|sort|sortable|specify|speedOfLight|spin|split|sqrt|squeeze|stack|standardGasVolume|standardPressure|standardTemperature|store|strip|sub|sum|switch|symbols|symlink|syntaxError|sys|systemError|take|tally|tan|tanh|tau|tauMass|terminal|terminate|thomsonCrossSection|throw|timestamp|to|translate|tritonMass|true|truncate|try|type|typeError|uiError|unclip|union|unique|units|unless|unplug|unset|unstack|until|unzip|upper|using|vacuumPermeability|vacuumPermittivity|valueError|values|var|variance|vmError|volume|vonKlitzingConstant|webview|when|while|window|with|wordwrap|write|xnor|xor|zip)\\b(?!:)"
+				"name": "support.function.art",
+				"match": "(?<!['\\\\])\\b(abs|absolute|accept|acos|acosh|acsec|acsech|actan|actanh|add|after|alert|alias|alphabet|and|angle|append|arg|args|arity|arrange|array|asec|asech|asin|asinh|atan|atan2|atanh|attr|attrs|average|before|benchmark|blend|break|browse|call|capitalize|case|ceil|chop|chunk|clamp|clear|clip|close|cluster|coalesce|collect|color|combine|compare|config|conj|connect|constructor|continue|convert|copy|cos|cosh|couple|crc|csec|csech|ctan|ctanh|cursor|darken|dec|decode|decouple|define|delete|denominator|desaturate|deviation|dialog|dictionary|difference|digest|digits|discard|div|divmod|do|download|drop|dup|empty|encode|ensure|enumerate|env|escape|execute|exit|exp|export|express|extend|extract|factorial|factors|fdiv|filter|first|flatten|floor|fold|function|gamma|gather|gcd|get|goto|grayscale|hash|hypot|if|import|in|inc|indent|index|info|input|insert|inspect|intersection|invert|is|jaro|join|keys|kurtosis|last|lcm|let|levenshtein|lighten|list|listen|ln|log|loop|lower|mail|map|match|max|maximum|median|method|methods|min|minimum|mod|module|move|mul|nand|neg|new|nor|normalize|not|now|numerator|open|or|outdent|pad|palette|panic|parse|path|pause|permissions|permutate|pop|popup|pow|powerset|powmod|prepend|print|prints|process|product|property|query|random|range|read|receive|reciprocal|relative|remove|rename|render|repeat|replace|request|return|reverse|rotate|round|sample|saturate|scalar|script|sec|sech|select|send|serve|set|shl|shr|shuffle|sin|sinh|size|skewness|slice|sort|sortable|specify|spin|split|sqrt|squeeze|stack|store|strip|sub|sum|switch|symbols|symlink|sys|take|tally|tan|tanh|terminal|terminate|throw|timestamp|to|translate|truncate|try|type|unclip|union|unique|units|unless|unplug|unset|unstack|until|unzip|upper|using|values|var|variance|volume|webview|when|while|with|wordwrap|write|xnor|xor|zip)\\b(?!:)"
+			}]
+		},
+		"constants": {
+			"patterns": [{
+				"name": "constant.language.art",
+				"match": "(?<!['\\\\])\\b(alphaParticleMass|angstromStar|any|arithmeticError|assertionError|atomicMass|avogadroConstant|bohrRadius|boltzmannConstant|classicalElectronRadius|conductanceQuantum|conversionError|deuteronMass|electronCharge|electronMass|electronMassEnergy|epsilon|false|gravitationalConstant|hartreeEnergy|helionMass|impedanceOfVacuum|indexError|infinite|inverseConductanceQuantum|josephsonConstant|libraryError|magneticFluxQuantum|maybe|molarGasConstant|muonMass|nameError|neutronMass|null|packageError|pi|planckConstant|planckLength|planckMass|planckTemperature|planckTime|protonMass|protonMassEnergy|reducedPlanckConstant|runtimeError|rydbergConstant|speedOfLight|standardGasVolume|standardPressure|standardTemperature|syntaxError|systemError|tau|tauMass|thomsonCrossSection|tritonMass|true|typeError|uiError|vacuumPermeability|vacuumPermittivity|valueError|vmError|vonKlitzingConstant|window)\\b(?!:)"
 			}]
 		},
 		"chars": {
 			"patterns": [{
-				"name": "string.quoted.double.art",
+				"name": "constant.character.art",
 				"match": "`.`"
 			}]
 		},
@@ -120,18 +126,18 @@
 			]
 		},
 		"safe_strings": {
-			"name": "string.quoted.double.art",
+			"name": "string.quoted.other.art",
 			"begin": "««",
 			"end": "»»"
 		},
 		"smart_strings": {
 			"begin": "(«)",
 			"beginCaptures": {
-                "0": { "name": "meta.attribute.id.html string" }
+                "0": { "name": "punctuation.definition.string.begin.art" }
             },
 			"patterns": [
 				{
-					"name": "markup.bold",
+					"name": "string.unquoted.art",
 					"match": "."
 				}
 			],
@@ -141,10 +147,10 @@
             "begin": "\\{!css:?",
             "end": ":?\\}",
             "beginCaptures": {
-                "0": { "name": "punctuation.code.open" }
+                "0": { "name": "punctuation.definition.string.begin.art" }
             },
             "endCaptures": {
-                "0": { "name": "punctuation.code.close" }
+                "0": { "name": "punctuation.definition.string.end.art" }
             },
             "name": "meta.embedded.block.css",
             "patterns": [ { "include": "source.css" } ]
@@ -153,10 +159,10 @@
             "begin": "\\{!html:?",
             "end": ":?\\}",
             "beginCaptures": {
-                "0": { "name": "punctuation.code.open" }
+                "0": { "name": "punctuation.definition.string.begin.art" }
             },
             "endCaptures": {
-                "0": { "name": "punctuation.code.close" }
+                "0": { "name": "punctuation.definition.string.end.art" }
             },
             "name": "meta.embedded.block.html",
             "patterns": [ { "include": "text.html.derivative" } ]
@@ -165,10 +171,10 @@
             "begin": "\\{!md:?",
             "end": ":?\\}",
             "beginCaptures": {
-                "0": { "name": "punctuation.code.open" }
+                "0": { "name": "punctuation.definition.string.begin.art" }
             },
             "endCaptures": {
-                "0": { "name": "punctuation.code.close" }
+                "0": { "name": "punctuation.definition.string.end.art" }
             },
             "name": "meta.embedded.block.markdown",
             "patterns": [ { "include": "text.html.markdown" } ]
@@ -177,10 +183,10 @@
             "begin": "\\{!js:?",
             "end": ":?\\}",
             "beginCaptures": {
-                "0": { "name": "punctuation.code.open" }
+                "0": { "name": "punctuation.definition.string.begin.art" }
             },
             "endCaptures": {
-                "0": { "name": "punctuation.code.close" }
+                "0": { "name": "punctuation.definition.string.end.art" }
             },
             "name": "meta.embedded.block.js",
             "patterns": [ { "include": "source.js" } ]
@@ -189,22 +195,22 @@
             "begin": "\\{!sql:?",
             "end": ":?\\}",
             "beginCaptures": {
-                "0": { "name": "punctuation.code.open" }
+                "0": { "name": "punctuation.definition.string.begin.art" }
             },
             "endCaptures": {
-                "0": { "name": "punctuation.code.close" }
+                "0": { "name": "punctuation.definition.string.end.art" }
             },
-            "name": "meta.embedded.block.html",
+            "name": "meta.embedded.block.sql",
             "patterns": [ { "include": "source.sql" } ]
 		},
 		"code_sh": {
             "begin": "\\{!sh:?",
             "end": ":?\\}",
             "beginCaptures": {
-                "0": { "name": "punctuation.code.open" }
+                "0": { "name": "punctuation.definition.string.begin.art" }
             },
             "endCaptures": {
-                "0": { "name": "punctuation.code.close" }
+                "0": { "name": "punctuation.definition.string.end.art" }
             },
             "name": "meta.embedded.block.shell",
             "patterns": [ { "include": "source.shell" } ]
@@ -213,41 +219,35 @@
             "begin": "\\{/",
             "end": "/\\}",
             "beginCaptures": {
-                "0": { "name": "punctuation.code.open" }
+                "0": { "name": "punctuation.definition.string.begin.art" }
             },
             "endCaptures": {
-                "0": { "name": "punctuation.code.close" }
+                "0": { "name": "punctuation.definition.string.end.art" }
             },
-            "name": "string.regex.art"
+            "name": "string.regexp.art"
 		},
 		"curly_string": {
             "begin": "\\{:?",
             "end": ":?\\}",
             "beginCaptures": {
-                "0": { "name": "punctuation.code.open" }
+                "0": { "name": "punctuation.definition.string.begin.art" }
             },
             "endCaptures": {
-                "0": { "name": "punctuation.code.close" }
+                "0": { "name": "punctuation.definition.string.end.art" }
             },
-            "name": "text.plain.art"
+            "name": "string.quoted.other.art"
 		},
 		"string_block": {
             "begin": "(\\-{3,})",
 			"end": "}",
             "beginCaptures": {
-                "0": { "name": "meta.attribute.id.html string" }
+                "0": { "name": "punctuation.definition.string.begin.art" }
             },
-            "name": "text.plain.art"
-		},
-		"constants": {
-			"patterns": [{
-				"name": "constant.language.art",
-				"match": "(true|false|null)(?!\\?)"
-			}]
+            "name": "string.unquoted.art"
 		},
 		"sugar": {
 			"patterns": [{
-				"name": "meta.attribute.id.html string",
+				"name": "keyword.control.art",
 				"match": "(->|=>|\\||\\:\\:|!|[\\-]{3,})"
 			}]
 		},
@@ -259,25 +259,25 @@
 		},
 		"literals": {
 			"patterns": [{
-				"name": "constant.language.art",
+				"name": "constant.other.symbol.art",
 				"match": "'([\\w\\_]+\\b\\??:?)"
 			}]
 		},
 		"types": {
 			"patterns": [{
-				"name": "constant.language.art",
+				"name": "entity.name.type.art",
 				"match": ":([\\w\\_]+)"
 			}]
 		},
 		"attributes": {
 			"patterns": [{
-				"name": "text.plain.art",
+				"name": "entity.other.attribute-name.art",
 				"match": "\\.([\\w\\_]+\\b\\??:?)"
 			}]
 		},
 		"labels": {
 			"patterns": [{
-				"name": "entity.name.art",
+				"name": "variable.parameter.art",
 				"match": "([\\w\\_]+\\b\\??:)"
 			}]
 		}
